@@ -1,12 +1,15 @@
-import Layout from '../components/index';
+import Headers from '../components/Home/Header';
+import Hero from '../components/Home/Hero';
+import Layout from '../components/Layout';
 
 export default function Home() {
   return (
     <Layout 
       title="Linktree" 
-      desc="Kumpulan link sosial media dan website Decorunic"
+      desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
     >
-      <h1>Home Page</h1>
+      <Hero />
+      <Headers />
     </Layout>
   );
 }
