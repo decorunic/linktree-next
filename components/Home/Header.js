@@ -1,4 +1,4 @@
-import SocialMediaButton from '../SocialMediaButton';
+import SocialMediaButton from './SocialMediaButton';
 
 export default function Header() {
   return (
