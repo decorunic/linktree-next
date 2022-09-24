@@ -31,6 +31,8 @@ export default function Layout(props) {
         <meta name="twitter:image" content="/img/android-icon-192x192.png" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
+
+        <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
       </Head>
 
       <main>
