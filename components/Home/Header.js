@@ -2,7 +2,7 @@ import SocialMediaButton from './SocialMediaButton';
 
 export default function Header() {
   return (
-    <header className="relative">
+    <header className="relative z-10">
       <div className="absolute -top-16 flex flex-col items-center w-full text-center md:-top-32">
         <picture>
           <img className="rounded-full shadow-lg shadow-black/20 max-w-[120px] md:max-w-[250px] object-cover" src="/img/logo.webp" alt="logo decorunic" />
