@@ -16,7 +16,7 @@ const appContextValue = {
 export default function Home() {
   return (
     <Layout 
-      title="Linktree" 
+      title="Linktree &#8211; Decorunic Furniture Hemat Ruang Minimalis Space Saving" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
     >
       <Hero />

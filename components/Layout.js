@@ -7,7 +7,7 @@ export default function Layout(props) {
     <>
       <Head >
         <title>
-          {title} &#8211; Decorunic Furniture Hemat Ruang Minimalis Space Saving
+          {title}
         </title>
         <meta name="keywords" content="Linktree Decorunic, Kumpulan Linktree, Shortlink, Pohon Link" />
         <meta name="description" content={desc} />
