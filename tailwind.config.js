@@ -10,6 +10,10 @@ module.exports = {
       padding: '16px',
     },
     extend: {
+      fontFamily: {
+        // poppins
+        sans: ['Poppins', 'sans-serif'],
+      },
       colors: {
         primary: 'rgb(var(--color-primary) / <alpha-value>)',
         secondary: 'rgb(var(--color-secondary) / <alpha-value>)',
