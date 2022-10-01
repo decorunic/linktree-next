@@ -1,5 +1,6 @@
 import db from '../../../libs/db';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
@@ -23,9 +24,14 @@ export default async function handler(req, res) {
     });
   }
 
+  const token = jwt.sign({
+    id: checkUser.id,
+    email: checkUser.email
+  }, 'secret', { expiresIn: '1h' });
+
   res.status(200);
   res.json({
     message: 'Success Login',
-    data: checkUser
+    token
   });
 }
