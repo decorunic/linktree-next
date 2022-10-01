@@ -9,7 +9,9 @@ export default async function handler(req, res) {
   const salt = await bcrypt.genSalt(10);
   const passwordHash = await bcrypt.hashSync(password, salt);
 
-  const user = await db('users').where({ email }).first();
+  const user = await db('users')
+                      .where({ email })
+                      .first();
 
   if (user) {
     return res.status(409).json({
@@ -17,10 +19,11 @@ export default async function handler(req, res) {
     });
   }
 
-  const register = await db('users').insert({
-    email,
-    password: passwordHash
-  });
+  const register = await db('users')
+                          .insert({
+                            email,
+                            password: passwordHash
+                          });
 
   const registerUser = await db('users')
                               .where({ id: register })

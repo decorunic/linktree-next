@@ -5,7 +5,9 @@ export default async function handler(req, res) {
 
   const { id } = req.query;
 
-  const deleted = await db('links').where({ id }).del();
+  const deleted = await db('links')
+                        .where({ id })
+                        .del();
 
   res.status(200);
   res.json({
