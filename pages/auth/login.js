@@ -63,7 +63,7 @@ export default function Login() {
           <label htmlFor="password" className="mb-2">Password</label>
           <input type="password" name="password" id="password" className="border border-gray-300 p-2 rounded mb-4" onChange={fieldHandler.bind(this)} />
 
-          <button type="submit" className="bg-blue-500 text-white p-2 rounded">Login</button>
+          <button type="submit" className="bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out">Login</button>
         </div>
       </form>
     </div>
