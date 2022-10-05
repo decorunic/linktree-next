@@ -1,3 +1,11 @@
+import { authorizationPage } from '../../middlewares/authorizationPage';
+
+export async function getServerSideProps(context) {
+  await authorizationPage(context);
+
+  return { props: {} }
+}
+
 export default function Admin () {
   return (
     <div className="container flex flex-wrap justify-center h-screen items-center">
