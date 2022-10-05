@@ -5,15 +5,29 @@ import Hero from '../components/Home/Hero';
 import Layout from '../components/Layout';
 import { AppContext } from '../context/app-context';
 
-import { socialMediaData, generalData, marketplaceData } from './api/data';
+export async function getServerSideProps() {
+  const linkReq = await fetch('http://localhost:3000/api/links');
 
-const appContextValue = {
-  socialMediaData,
-  generalData,
-  marketplaceData,
-};
+  const links = await linkReq.json();
 
-export default function Home() {
+  return {
+    props: {
+      links: links.data
+    } 
+  }
+}
+
+export default function Home(props) {
+  const socialLinks = props.links.filter(link => link.type === 'social');
+  const generalLinks = props.links.filter(link => link.type === 'general');
+  const marketplaceLinks = props.links.filter(link => link.type === 'marketplace');
+
+  const appContextValue = {
+    socialLinks,
+    generalLinks,
+    marketplaceLinks,
+  };
+
   return (
     <Layout 
       title="Linktree &#8211; Decorunic Furniture Hemat Ruang Minimalis Space Saving" 

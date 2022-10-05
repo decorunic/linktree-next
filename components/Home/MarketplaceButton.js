@@ -9,7 +9,7 @@ export default function MarketplaceButton() {
       <h2 className="text-center text-xl font-bold mt-12 mb-5">Marketplace</h2>
       <div className="flex flex-wrap justify-center gap-5 md:gap-y-5 md:gap-x-10 lg:gap-x-14">
         {
-          context.marketplaceData.map((item, index) => (
+          context.marketplaceLinks.map((item, index) => (
             <a
               key={index} 
               href={item.url}

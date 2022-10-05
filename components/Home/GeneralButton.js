@@ -7,7 +7,7 @@ export default function GeneralButton() {
   return (
     <div className="flex flex-wrap justify-center gap-5 md:gap-y-5 md:gap-x-10 lg:gap-x-14">
       {
-        context.generalData.map((item, index) => (
+        context.generalLinks.map((item, index) => (
           <a 
             key={index}
             href={item.url} 
