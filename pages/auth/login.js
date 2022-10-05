@@ -1,16 +1,10 @@
 import Cookies from 'js-cookie';
 import React, { useState, useEffect } from 'react';
 import Router from 'next/router';
-import cookies from 'next-cookies';
+import { unauthorizedPage } from '../../middlewares/authorizationPage';
 
 export async function getServerSideProps(context) {
-  const allCookies = cookies(context);
-
-  if (allCookies.token) {
-      return context.res.writeHead(302, 
-      { Location: '/admin' 
-    }).end();
-  }
+  await unauthorizedPage(context);
 
   return { props: {} };
 }
