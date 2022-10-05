@@ -1,5 +1,19 @@
 import Cookies from 'js-cookie';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Router from 'next/router';
+import cookies from 'next-cookies';
+
+export async function getServerSideProps(context) {
+  const allCookies = cookies(context);
+
+  if (allCookies.token) {
+      return context.res.writeHead(302, 
+      { Location: '/admin' 
+    }).end();
+  }
+
+  return { props: {} };
+}
 
 export default function Login() {
   const [fields, setFields] = useState({
@@ -10,6 +24,7 @@ export default function Login() {
   const [status, setStatus] = useState({
     message: ''
   });
+
 
   async function loginHandler(e) {
     e.preventDefault();
@@ -30,8 +45,8 @@ export default function Login() {
       });
 
       Cookies.set('token', loginRes.token);
-      console.log(status);
-    // console.log(fields);
+
+      Router.push('/admin');
   }
 
   function fieldHandler(e) {
