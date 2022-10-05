@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import React, { useState } from 'react';
 
 export default function Login() {
@@ -28,7 +29,7 @@ export default function Login() {
         message: loginRes.message
       });
 
-      console.log(loginRes);
+      Cookies.set('token', loginRes.token);
       console.log(status);
     // console.log(fields);
   }
