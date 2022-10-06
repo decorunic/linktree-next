@@ -1,9 +1,11 @@
 import DynamicFaIcon from '../../components/DynamicFAIcon';
 import Layout from '../../components/Layout';
+import Router from 'next/router';
+import React, { useState } from 'react';
 import { authorizationPage } from '../../middlewares/authorizationPage';
 
 export async function getServerSideProps(context) {
-  await authorizationPage(context);
+  const { token } = await authorizationPage(context);
 
   const linkReq = await fetch('http://localhost:3000/api/links');
   
@@ -11,15 +13,47 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
-      links: links.data
+      links: links.data,
+      token,
     }
   }
 }
 
 export default function Admin(props) {
-  const socialLinks = props.links.filter(link => link.type === 'social');
-  const generalLinks = props.links.filter(link => link.type === 'general');
-  const marketplaceLinks = props.links.filter(link => link.type === 'marketplace');
+  const [links, setLinks] = useState(props.links);
+
+  const socialLinks = links.filter(link => link.type === 'social');
+  const generalLinks = links.filter(link => link.type === 'general');
+  const marketplaceLinks = links.filter(link => link.type === 'marketplace');
+
+  
+  async function deleteHandler(id, e) {
+    e.preventDefault();
+
+    const msg = confirm('Are you sure?');
+
+    if (msg) {
+      const linksFiltered = links.filter(link => {
+        return link.id !== id && link;
+      });
+
+      setLinks(linksFiltered);
+
+      const deleteReq = await fetch('http://localhost:3000/api/links/delete?id=' + id, {
+        method: 'DELETE',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': 'Bearer ' + props.token
+        }
+      });
+
+      const res = await deleteReq.json();
+
+      if (res.status === 'success') {
+        Router.push('/admin');
+      }
+    }
+  }
 
   return (
     <Layout 
@@ -34,7 +68,10 @@ export default function Admin(props) {
 
         {/* add new link button*/}
         <div className="flex flex-col items-center justify-center w-full h-full mt-10">
-          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-9 rounded-full">
+          <button 
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-9 rounded-full"
+            onClick={() => Router.push('/admin/create')}
+          >
             Add New Link
           </button>
         </div>
@@ -49,10 +86,13 @@ export default function Admin(props) {
                   className="text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50">
                   <DynamicFaIcon name={item.icon} />
                 </a>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4">
                   <DynamicFaIcon name="FaEdit" />
                 </button>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mr-4">
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-
+                  full mr-4"
+                  onClick={deleteHandler.bind(this, item.id)}
+                >
                   <DynamicFaIcon name="FaTrash" />
                 </button>
               </>
@@ -74,7 +114,10 @@ export default function Admin(props) {
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-9">
                   <DynamicFaIcon name="FaEdit" />
                 </button>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-9">
+                <button 
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-9"
+                  onClick={deleteHandler.bind(this, item.id)}
+                >
                   <DynamicFaIcon name="FaTrash" />
                 </button>
               </>
@@ -96,7 +139,10 @@ export default function Admin(props) {
                 <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-9">
                   <DynamicFaIcon name="FaEdit" />
                 </button>
-                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-9">
+                <button 
+                  className="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-9"
+                  onClick={deleteHandler.bind(this, item.id)}
+                >
                   <DynamicFaIcon name="FaTrash" />
                 </button>
               </>

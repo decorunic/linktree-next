@@ -42,13 +42,10 @@ export default function Create(props) {
 
     const res = await create.json();
 
-    if (res.status === 'success') {
+    if (res.status !== 'loading') {
       setStatus('success');
       Router.push('/admin');
-    } else {
-      setStatus('error');
     }
-    console.log(res);
   }
 
   function fieldHandler(e) {
@@ -95,6 +92,7 @@ export default function Create(props) {
           <option value="marketplace">Marketplace</option>
         </select>
         <button type="submit">Submit</button>
+        {status}
       </form>
     </div>
   );
