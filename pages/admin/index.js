@@ -42,12 +42,20 @@ export default function Admin(props) {
         <div className="flex flex-wrap mt-5 gap-2 md:gap-3 justify-center">
           { 
             socialLinks.map((item, index) => (
-              <a
-                key={index} 
-                href={item.url} 
-                className="text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50">
-                <DynamicFaIcon name={item.icon} />
-              </a>
+              <>
+                <a
+                  key={index} 
+                  href={item.url} 
+                  className="text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50">
+                  <DynamicFaIcon name={item.icon} />
+                </a>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                  <DynamicFaIcon name="FaEdit" />
+                </button>
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full mr-4">
+                  <DynamicFaIcon name="FaTrash" />
+                </button>
+              </>
             ))
           }
         </div>
@@ -55,12 +63,21 @@ export default function Admin(props) {
         <div className="flex flex-wrap justify-center gap-5 md:gap-y-5 md:gap-x-10 lg:gap-x-14">
           {
             generalLinks.map((item, index) => (
-              <a 
-                key={index}
-                href={item.url} 
-                className="w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30">
-                {item.name}
+              <>
+                <a 
+                  key={index}
+                  href={item.url} 
+                  className="w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30"
+                >
+                  {item.name}
                 </a>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-9">
+                  <DynamicFaIcon name="FaEdit" />
+                </button>
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-9">
+                  <DynamicFaIcon name="FaTrash" />
+                </button>
+              </>
             ))
           }
         </div>
@@ -68,12 +85,22 @@ export default function Admin(props) {
         <div className="flex flex-wrap justify-center gap-5 md:gap-y-5 md:gap-x-10 lg:gap-x-14">
           {
             marketplaceLinks.map((item, index) => (
-              <a 
-                key={index}
-                href={item.url} 
-                className="w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30">
-                {item.name}
+              <>
+                <a 
+                  key={index}
+                  href={item.url} 
+                  className="w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30"
+                >
+                  {item.name}
                 </a>
+                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-9">
+                  <DynamicFaIcon name="FaEdit" />
+                </button>
+                <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-3 px-9">
+                  <DynamicFaIcon name="FaTrash" />
+                </button>
+              </>
+
             ))
           }
         </div>
