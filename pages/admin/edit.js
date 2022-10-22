@@ -5,6 +5,19 @@ import { authorizationPage } from '../../middlewares/authorizationPage';
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
 
+  const { id } = context.query;
+
+  // console.log(id);
+  const linkReq = await fetch('http://localhost:3000/api/links/detail?id=' + id, {
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  const res = await linkReq.json();
+
+  console.log(res);
+
   return {
     props: {
       token,
@@ -12,7 +25,7 @@ export async function getServerSideProps(context) {
   }
 }
 
-export default function Create(props) {
+export default function Edit(props) {
   const [fields, setFields] = useState({
     name: '',
     url: '',
@@ -22,17 +35,15 @@ export default function Create(props) {
 
   const [status, setStatus] = useState();
 
-  async function createHandler(e) {
+  async function updateHandler(e) {
     e.preventDefault();
 
     setStatus('loading');
 
     const { token } = props;
 
-    // console.log(fields);
-
-    const create = await fetch('http://localhost:3000/api/links/create', {
-      method: 'POST',
+    const update = await fetch('http://localhost:3000/api/links/update', {
+      method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         'Authorization': 'Bearer ' + token
@@ -40,13 +51,14 @@ export default function Create(props) {
       body: JSON.stringify(fields)
     });
 
-    if(!create.ok) return setStatus('error');
+    if(!update.ok) return setStatus('error');
       
-    const res = await create.json();
+    const res = await update.json();
 
     setStatus('success');
 
     Router.push('/admin');
+
   }
 
   function fieldHandler(e) {
@@ -60,9 +72,9 @@ export default function Create(props) {
 
   return (
     <div className="container">
-      <h1 className="text-4xl font-bold">Create Link</h1>
+      <h1 className="text-4xl font-bold">Edit Link</h1>
       <form 
-        onSubmit={createHandler.bind(this)}
+        onSubmit={updateHandler.bind(this)}
         className="flex flex-col gap-5"
       >
         <input

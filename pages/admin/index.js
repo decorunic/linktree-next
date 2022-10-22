@@ -55,6 +55,12 @@ export default function Admin(props) {
     }
   }
 
+  function editHandler(id, e) {
+    e.preventDefault();
+
+    Router.push('/admin/edit?id=' + id);
+  }
+
   return (
     <Layout 
       title="Linktree &#8211; Admin" 
@@ -86,7 +92,10 @@ export default function Admin(props) {
                   className="text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50">
                   <DynamicFaIcon name={item.icon} />
                 </a>
-                <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4">
+                <button 
+                  onClick={editHandler.bind(this, item.id)}
+                  className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4"
+                >
                   <DynamicFaIcon name="FaEdit" />
                 </button>
                 <button className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-
