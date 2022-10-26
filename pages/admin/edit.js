@@ -7,7 +7,6 @@ export async function getServerSideProps(context) {
 
   const { id } = context.query;
 
-  // console.log(id);
   const linkReq = await fetch('http://localhost:3000/api/links/detail?id=' + id, {
     headers: {
       'Authorization': 'Bearer ' + token
@@ -16,21 +15,24 @@ export async function getServerSideProps(context) {
 
   const res = await linkReq.json();
 
-  console.log(res);
+  // console.log(res);
 
   return {
     props: {
       token,
+      link: res.data
     }
   }
 }
 
 export default function Edit(props) {
+  const { link } = props;
+
   const [fields, setFields] = useState({
-    name: '',
-    url: '',
-    icon: '',
-    type: ''
+    name: link.name,
+    url: link.url,
+    icon: link.icon,
+    type: link.type
   });
 
   const [status, setStatus] = useState();
@@ -38,11 +40,12 @@ export default function Edit(props) {
   async function updateHandler(e) {
     e.preventDefault();
 
+    // return console.log(fields);
     setStatus('loading');
 
     const { token } = props;
 
-    const update = await fetch('http://localhost:3000/api/links/update', {
+    const update = await fetch('http://localhost:3000/api/links/update?id=' + link.id, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -82,27 +85,31 @@ export default function Edit(props) {
           type="text"
           placeholder="Link Name"
           name="name"
+          defaultValue={link.name}
         />
         <input
           onChange={fieldHandler.bind(this)}
           type="text"
           placeholder="Link URL"
           name="url"
+          defaultValue={link.url}
         />
         <input
           onChange={fieldHandler.bind(this)}
           type="text"
           placeholder="Link Icon"
           name="icon"
+          defaultValue={link.icon}
         />
         <select 
           name="type"
           onChange={fieldHandler.bind(this)}
+          defaultValue={link.type}
         >
           <option>- Select Type -</option>
-          <option value="general">General</option>
-          <option value="social">Social Media</option>
-          <option value="marketplace">Marketplace</option>
+          <option value="general" defaultValue={link.type === 'general' ? true : false}>General</option>
+          <option value="social" defaultValue={link.type === 'social' ? true : false}>Social</option>
+          <option value="marketplace " defaultValue={link.type === 'marketplace' ? true : false}>Marketplace</option>
         </select>
         <button type="submit">Submit</button>
         {status}
