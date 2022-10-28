@@ -15,7 +15,7 @@ export default function authorization(req, res) {
 
     if (authType !== 'Bearer') return res.status(401).end();
     
-    return jwt.verify(token, 'secret', (err, decoded) => {
+    return jwt.verify(token, JWT_SECRET, (err, decoded) => {
       if (err) return res.status(401).end();
       return resolve(decoded);
     });
