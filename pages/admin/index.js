@@ -3,6 +3,7 @@ import Layout from '../../components/Layout';
 import Router from 'next/router';
 import React, { useState } from 'react';
 import { authorizationPage } from '../../middlewares/authorizationPage';
+import Navbar from '../../components/Partials/Navbar';
 
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
@@ -66,6 +67,7 @@ export default function Admin(props) {
       title="Linktree &#8211; Admin" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
     >
+      <Navbar />
       <div className="container justify-center items-center my-10">
         <div className="flex flex-col items-center justify-center w-full h-full">
           <h1 className="text-4xl font-bold">Admin</h1>
