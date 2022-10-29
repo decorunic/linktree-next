@@ -7,7 +7,6 @@ import { FaChevronLeft } from 'react-icons/fa';
 export default function Navbar() {
 
   const [isActiveHamburger, setIsActiveHamburger] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   
   useEffect(() => {
     window.onscroll = () => {
@@ -24,14 +23,6 @@ export default function Navbar() {
 
   const onClickHamburgerHandler = () => {
     setIsActiveHamburger(!isActiveHamburger);
-  };
-
-  const onClickDropdownHandler = () => {
-    setIsDropdownOpen(!isDropdownOpen);
-  };
-
-  const onClickDropdownLinkHandler = () => {
-    setIsDropdownOpen(false);
   };
 
   return (
@@ -52,10 +43,7 @@ export default function Navbar() {
                   onClickHamburger={onClickHamburgerHandler}
                 />
                 <Nav
-                  onClickDropdown={onClickDropdownHandler}
-                  onClickDropdownLink={onClickDropdownLinkHandler}
                   isActiveHamburger={isActiveHamburger}
-                  isDropdownOpen={isDropdownOpen}
                 />
               </div>
             </div>
