@@ -20,7 +20,7 @@ export default function Navbar({ isActiveHamburger }) {
           <Link
             href="/admin/appearance"
           >
-            <span className={router.pathname === '/' ? 'cursor-pointer nav-link rounded-b-none rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:hover:text-primary dark:text-primary nav-link-active' : 'cursor-pointer nav-link rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:text-light dark:hover:text-primary'}>
+            <span className={router.pathname === '/admin/appearance' ? 'cursor-pointer nav-link rounded-b-none rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:hover:text-primary dark:text-primary nav-link-active' : 'cursor-pointer nav-link rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:text-light dark:hover:text-primary'}>
               Appearance
             </span>
           </Link>
@@ -29,8 +29,8 @@ export default function Navbar({ isActiveHamburger }) {
           <Link
             href="/admin/analytics"
           >
-            <span className={router.pathname === '/' ? 'cursor-pointer nav-link rounded-b-none rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:hover:text-primary dark:text-primary nav-link-active' : 'cursor-pointer nav-link rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:text-light dark:hover:text-primary'}>
-              Analitycs
+            <span className={router.pathname === '/admin/analytics' ? 'cursor-pointer nav-link rounded-b-none rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:hover:text-primary dark:text-primary nav-link-active' : 'cursor-pointer nav-link rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:text-light dark:hover:text-primary'}>
+              Analytics
             </span>
           </Link>
         </li>

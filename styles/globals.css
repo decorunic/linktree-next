@@ -24,7 +24,7 @@ body {
 }
 
 .nav-link-active{
-  @apply text-secondary border-b-2;
+  @apply border-b-2 font-semibold;
 }
 
 @layer components {
