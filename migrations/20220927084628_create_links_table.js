@@ -10,6 +10,7 @@ exports.up = function(knex) {
     table.string('type', 255).notNullable();
     table.string('icon', 255).notNullable();
     table.integer('order').notNullable();
+    table.boolean('enable').notNullable().defaultTo(true);
     table.timestamps(true, true);
   });
 };
