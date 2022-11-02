@@ -66,7 +66,7 @@ export default function Admin(props) {
       title="Linktree &#8211; Admin" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
     >
-      <div className="container justify-center items-center my-10">
+      <div className="container justify-center items-center mt-20 mb-10 lg:mt-24">
         <div className="flex flex-col items-center justify-center w-full h-full">
           <h1 className="text-4xl font-bold">Admin</h1>
           <p className="text-lg">Welcome to admin page!</p>

@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react';
 import HamburgerButton from './HamburgerButton';
 import Nav from './Nav';
 import { FaChevronLeft } from 'react-icons/fa';
+import Cookie from 'js-cookie';
+import Router from 'next/router';
 
 export default function Navbar() {
 
@@ -23,6 +25,13 @@ export default function Navbar() {
 
   const onClickHamburgerHandler = () => {
     setIsActiveHamburger(!isActiveHamburger);
+  };
+
+  const logoutHandler = (e) => {
+    e.preventDefault();
+    
+    Cookie.remove('token');
+    Router.push('/auth/login');
   };
 
   return (
@@ -48,13 +57,13 @@ export default function Navbar() {
               </div>
             </div>
             <div className="mb-1 hidden lg:block">
-              <Link
-                href="/auth/logout"
+              <button
+                className=" text-base font-semibold mx-6 flex px-6 py-2 bg-transparent border-[1px] border-red-600 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all ease-in duration-75 dark:border-light dark:hover:border-red-600 dark:text-light lg:mx-4"
+                type="button"
+                onClick={logoutHandler}
               >
-                <span className="cursor-pointer text-base font-semibold mx-6 flex px-6 py-2 bg-transparent border-[1px] border-red-600 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all ease-in duration-75 dark:border-light dark:hover:border-red-600 dark:text-light lg:mx-4">
-                  Logout
-                </span>
-              </Link>
+                Logout
+              </button>
             </div>
           </div>
         </div>

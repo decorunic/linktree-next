@@ -9,6 +9,7 @@ exports.up = function(knex) {
     table.string('url', 255).notNullable();
     table.string('type', 255).notNullable();
     table.string('icon', 255).notNullable();
+    table.integer('order').notNullable();
     table.timestamps(true, true);
   });
 };
