@@ -16,10 +16,11 @@ export default function Analytics() {
     <Layout 
       title="Linktree &#8211; Admin" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
+      back="/"
     >
       <div className="container justify-center items-center my-10">
         <div className="flex flex-col items-center justify-center">
-          <h1 className="text-3xl font-bold text-center">Analytics</h1>
+          <h1 className="text-2xl lg:text-3xl font-bold text-center">Analytics</h1>
           <p className="text-center">Coming soon...</p>
         </div>
       </div>

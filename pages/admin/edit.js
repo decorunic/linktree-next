@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Router from 'next/router';
 import { authorizationPage } from '../../middlewares/authorizationPage';
+import Layout from '../../components/Layout';
 
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
@@ -74,46 +75,56 @@ export default function Edit(props) {
   }
 
   return (
-    <div className="container">
-      <h1 className="text-4xl font-bold">Edit Link</h1>
-      <form 
-        onSubmit={updateHandler.bind(this)}
-        className="flex flex-col gap-5"
-      >
-        <input
-          onChange={fieldHandler.bind(this)}
-          type="text"
-          placeholder="Link Name"
-          name="name"
-          defaultValue={link.name}
-        />
-        <input
-          onChange={fieldHandler.bind(this)}
-          type="text"
-          placeholder="Link URL"
-          name="url"
-          defaultValue={link.url}
-        />
-        <input
-          onChange={fieldHandler.bind(this)}
-          type="text"
-          placeholder="Link Icon"
-          name="icon"
-          defaultValue={link.icon}
-        />
-        <select 
-          name="type"
-          onChange={fieldHandler.bind(this)}
-          defaultValue={link.type}
-        >
-          <option>- Select Type -</option>
-          <option value="general" defaultValue={link.type === 'general' ? true : false}>General</option>
-          <option value="social" defaultValue={link.type === 'social' ? true : false}>Social</option>
-          <option value="marketplace " defaultValue={link.type === 'marketplace' ? true : false}>Marketplace</option>
-        </select>
-        <button type="submit">Submit</button>
-        {status}
-      </form>
-    </div>
+    <Layout
+      title="Linktree &#8211; Edit Link"
+      desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
+      back="/admin"
+    >
+      <div className="container justify-center items-center mt-20 mb-10 lg:mt-24">
+        <div className="flex flex-wrap items-center justify-center px-4">
+          <section className="w-full">
+            <h1 className="text-2xl lg:text-4xl font-bold">Edit Link</h1>
+            <form 
+              onSubmit={updateHandler.bind(this)}
+              className="flex flex-col gap-5"
+            >
+              <input
+                onChange={fieldHandler.bind(this)}
+                type="text"
+                placeholder="Link Name"
+                name="name"
+                defaultValue={link.name}
+              />
+              <input
+                onChange={fieldHandler.bind(this)}
+                type="text"
+                placeholder="Link URL"
+                name="url"
+                defaultValue={link.url}
+              />
+              <input
+                onChange={fieldHandler.bind(this)}
+                type="text"
+                placeholder="Link Icon"
+                name="icon"
+                defaultValue={link.icon}
+              />
+              <select 
+                name="type"
+                onChange={fieldHandler.bind(this)}
+                defaultValue={link.type}
+              >
+                <option>- Select Type -</option>
+                <option value="general" defaultValue={link.type === 'general' ? true : false}>General</option>
+                <option value="social" defaultValue={link.type === 'social' ? true : false}>Social</option>
+                <option value="marketplace " defaultValue={link.type === 'marketplace' ? true : false}>Marketplace</option>
+              </select>
+              <button type="submit">Submit</button>
+              {status}
+            </form>
+          </section>
+        </div>
+      </div>
+    </Layout>
   );
 }

@@ -6,7 +6,7 @@ import { FaChevronLeft } from 'react-icons/fa';
 import Cookie from 'js-cookie';
 import Router from 'next/router';
 
-export default function Navbar() {
+export default function Navbar(props) {
 
   const [isActiveHamburger, setIsActiveHamburger] = useState(false);
   
@@ -43,7 +43,7 @@ export default function Navbar() {
           <div className="relative flex items-center justify-between">
             <div className="flex">
               <div className="px-4 flex items-center">
-                <Link href="/">
+                <Link href={props.back}>
                   <div className="flex items-center cursor-pointer p-2 font-bold text-xl rounded-full transition-all duration-200 bg-primary/30 hover:bg-primary/40">
                     <FaChevronLeft />
                   </div>

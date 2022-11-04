@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import Router from 'next/router';
 import { authorizationPage } from '../../middlewares/authorizationPage';
+import Layout from '../../components/Layout';
+import DynamicFaIcon from '../../components/DynamicFAIcon';
 
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
@@ -13,6 +15,93 @@ export async function getServerSideProps(context) {
 }
 
 export default function Create(props) {
+  const typeOptions = [
+    {
+      value: 'social',
+      label: 'Social Media'
+    },
+    {
+      value: 'general',
+      label: 'General'
+    },
+    {
+      value: 'marketplace',
+      label: 'Marketplace'
+    }
+  ];
+
+  const socialIconOptions = [
+    {
+      value: 'FaFacebook',
+      label: 'Facebook'
+    },
+    {
+      value: 'FaTwitter',
+      label: 'Twitter'
+    },
+    {
+      value: 'FaInstagram',
+      label: 'Instagram'
+    },
+    {
+      value: 'FaYoutube',
+      label: 'Youtube'
+    },
+    {
+      value: 'FaLinkedin',
+      label: 'Linkedin'
+    },
+    {
+      value: 'FaGithub',
+      label: 'Github'
+    },
+    {
+      value: 'FaWhatsapp',
+      label: 'Whatsapp'
+    },
+    {
+      value: 'FaTelegram',
+      label: 'Telegram'
+    },
+    {
+      value: 'FaDiscord',
+      label: 'Discord'
+    },
+    {
+      value: 'FaTiktok',
+      label: 'Tiktok'
+    },
+    {
+      value: 'FaPinterest',
+      label: 'Pinterest'
+    },
+    {
+      value: 'FaReddit',
+      label: 'Reddit'
+    },
+    {
+      value: 'FaSpotify',
+      label: 'Spotify'
+    },
+    {
+      value: 'FaSoundcloud',
+      label: 'Soundcloud'
+    },
+    {
+      value: 'FaTwitch',
+      label: 'Twitch'
+    },
+    {
+      value: 'FaMedium',
+      label: 'Medium'
+    },
+    {
+      value: 'FaSnapchat',
+      label: 'Snapchat'
+    }
+  ];
+
+
   const [fields, setFields] = useState({
     name: '',
     url: '',
@@ -59,42 +148,107 @@ export default function Create(props) {
   }
 
   return (
-    <div className="container">
-      <h1 className="text-4xl font-bold">Create Link</h1>
-      <form 
-        onSubmit={createHandler.bind(this)}
-        className="flex flex-col gap-5"
-      >
-        <input
-          onChange={fieldHandler.bind(this)}
-          type="text"
-          placeholder="Link Name"
-          name="name"
-        />
-        <input
-          onChange={fieldHandler.bind(this)}
-          type="text"
-          placeholder="Link URL"
-          name="url"
-        />
-        <input
-          onChange={fieldHandler.bind(this)}
-          type="text"
-          placeholder="Link Icon"
-          name="icon"
-        />
-        <select 
-          name="type"
-          onChange={fieldHandler.bind(this)}
-        >
-          <option>- Select Type -</option>
-          <option value="general">General</option>
-          <option value="social">Social Media</option>
-          <option value="marketplace">Marketplace</option>
-        </select>
-        <button type="submit">Submit</button>
-        {status}
-      </form>
-    </div>
+    <Layout
+      title="Linktree &#8211; Create New Link" 
+      desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
+      back="/admin"
+    >
+      <div className="container justify-center items-center mt-20 mb-10 lg:mt-24">
+        <div className="flex flex-wrap items-center justify-center px-4">
+          <section className="w-full md:w-1/2">
+            <h1 className="text-2xl lg:text-3xl font-bold text-center">Create New Link</h1>
+            <form
+              onSubmit={createHandler.bind(this)}
+              className="flex flex-col mt-10 gap-x-5 gap-y-1"
+            >
+              <label 
+                htmlFor="name"
+                >
+                  Name
+              </label>
+              <input
+                id="name"
+                onChange={fieldHandler.bind(this)}
+                type="text"
+                placeholder="Link Name"
+                name="name"
+                className="border border-gray-300 p-2 rounded mb-4"
+              />
+              <label 
+                htmlFor="url"
+                >
+                  URL
+              </label>
+              <input
+                id="url"
+                onChange={fieldHandler.bind(this)}
+                type="text"
+                placeholder="Link URL"
+                name="url"
+                className="border border-gray-300 p-2 rounded mb-4"
+              />
+              
+              <label 
+                htmlFor="type"
+                >
+                  Type
+              </label>
+              <select 
+                id="type"
+                name="type"
+                onChange={fieldHandler.bind(this)}
+                className="border border-gray-300 p-2 rounded mb-4"
+              >
+                <option value="">Select Link Type</option>
+                {typeOptions.map((option, index) => (
+                  <option 
+                    key={index} 
+                    value={option.value}
+                  >
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+              
+              <div className={(fields.type !== 'social') ? 'hidden' : 'block' }>
+                <label
+                  htmlFor="icon"
+                  >
+                    Icon
+                </label>
+                <div className="flex flex-wrap gap-2">
+                  {socialIconOptions.map((option, index) => (
+                    <div
+                      key={index}
+                      className="flex flex-col items-center"
+                    >
+                    <input
+                      onChange={fieldHandler.bind(this)}
+                      type="radio"
+                      name="icon"
+                      id={option.value}
+                      value={option.value}
+                      className="hidden"
+                    />
+                    <label
+                      htmlFor={option.value}
+                      className="flex flex-col items-center cursor-pointer"
+                    >
+                      <DynamicFaIcon
+                        name={option.value}
+                        className="text-2xl"
+                      />
+                    </label>
+                  </div>
+                  ))}
+                </div>
+              </div>
+              <button type="submit" className="bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out">Save</button>
+              {status}
+            </form>
+          </section>
+        </div>
+      </div>
+    </Layout>
   );
 }

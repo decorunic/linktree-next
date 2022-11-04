@@ -3,7 +3,7 @@ import { useRouter } from 'next/router';
 import Navbar from './Partials/Navbar';
 
 export default function Layout(props) {
-  const { children, title, desc } = props;
+  const { children, title, desc, back } = props;
   const router = useRouter();
 
   return (
@@ -36,7 +36,7 @@ export default function Layout(props) {
         <meta name="twitter:description" content={desc} />
       </Head>
 
-      {router.pathname !== '/' && <Navbar />}
+      {router.pathname !== '/' && <Navbar back={back} />}
       {children}
 
       <footer>
