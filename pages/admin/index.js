@@ -3,6 +3,7 @@ import Layout from '../../components/Layout';
 import Router from 'next/router';
 import React, { useState } from 'react';
 import { authorizationPage } from '../../middlewares/authorizationPage';
+import Swal from 'sweetalert2';
 
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
@@ -30,10 +31,22 @@ export default function Admin(props) {
   async function deleteHandler(id, e) {
     e.preventDefault();
 
-    const msg = confirm('Are you sure?');
-
-    if (msg) {
+    const msg = await Swal.fire({
+      title: 'Are you sure you want to delete this link?',
+      text: 'You won\'t be able to revert this!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    });
+    if (msg.isConfirmed) {
       const linksFiltered = links.filter(link => {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        );
         return link.id !== id && link;
       });
 
@@ -52,6 +65,13 @@ export default function Admin(props) {
       if (res.status === 'success') {
         Router.push('/admin');
       }
+    } else {
+      Swal.fire(
+        'Cancelled',
+        'Your imaginary file is safe :)',
+        'error'
+      );
+      return;
     }
   }
 

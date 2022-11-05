@@ -3,6 +3,7 @@ import Router from 'next/router';
 import { authorizationPage } from '../../middlewares/authorizationPage';
 import Layout from '../../components/Layout';
 import DynamicFaIcon from '../../components/DynamicFAIcon';
+import Swal from 'sweetalert2';
 
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
@@ -152,8 +153,16 @@ export default function Edit(props) {
 
     setStatus('success');
 
-    Router.push('/admin');
-
+    Swal.fire({
+      title: 'Success',
+      text: 'Link successfully updated',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    }).then((result) => {
+      if(result.isConfirmed) {
+        Router.push('/admin');
+      }
+    });
   }
 
   function fieldHandler(e) {

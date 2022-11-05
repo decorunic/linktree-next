@@ -5,6 +5,7 @@ import Nav from './Nav';
 import { FaChevronLeft } from 'react-icons/fa';
 import Cookie from 'js-cookie';
 import Router from 'next/router';
+import Swal from 'sweetalert2';
 
 export default function Navbar(props) {
 
@@ -30,10 +31,19 @@ export default function Navbar(props) {
   const logoutHandler = (e) => {
     e.preventDefault();
 
-    if(confirm('Are you sure?')) {
-      Cookie.remove('token');
-      Router.push('/auth/login');
-    }
+    Swal.fire({
+      title: 'Are you sure want to logout?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, logout!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Cookie.remove('token');
+        Router.push('/auth/login');
+      }
+    });
     
   };
 
