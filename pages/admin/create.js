@@ -84,10 +84,6 @@ export default function Create(props) {
       label: 'Spotify'
     },
     {
-      value: 'FaSoundcloud',
-      label: 'Soundcloud'
-    },
-    {
       value: 'FaTwitch',
       label: 'Twitch'
     },
@@ -98,6 +94,10 @@ export default function Create(props) {
     {
       value: 'FaSnapchat',
       label: 'Snapchat'
+    },
+    {
+      value: 'FaEtsy',
+      label: 'Etsy'
     },
     {
       value: 'FaLink',
@@ -247,7 +247,8 @@ export default function Create(props) {
                   ))}
                 </div>
               </div>
-              <button type="submit" className="bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out">Save</button>
+              <button type="submit" className="bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out mb-1 font-semibold">Save</button>
+              <button type="button" className="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 transition-all duration-200 ease-in-out mb-1" onClick={() => Router.push('/admin')}>Cancel</button>
               {status}
             </form>
           </section>
