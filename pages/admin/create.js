@@ -98,7 +98,11 @@ export default function Create(props) {
     {
       value: 'FaSnapchat',
       label: 'Snapchat'
-    }
+    },
+    {
+      value: 'FaLink',
+      label: 'Lainnya'
+    },
   ];
 
 
@@ -155,7 +159,7 @@ export default function Create(props) {
     >
       <div className="container justify-center items-center mt-20 mb-10 lg:mt-24">
         <div className="flex flex-wrap items-center justify-center px-4">
-          <section className="w-full md:w-1/2">
+          <section className="w-full md:w-[70%] lg:w-1/2">
             <h1 className="text-2xl lg:text-3xl font-bold text-center">Create New Link</h1>
             <form
               onSubmit={createHandler.bind(this)}
@@ -216,29 +220,29 @@ export default function Create(props) {
                   >
                     Icon
                 </label>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 p-2 mb-4 border-[1px] rounded justify-between">
                   {socialIconOptions.map((option, index) => (
                     <div
                       key={index}
-                      className="flex flex-col items-center"
+                      className="w-[calc(100%/6-0.5rem)]"
                     >
-                    <input
-                      onChange={fieldHandler.bind(this)}
-                      type="radio"
-                      name="icon"
-                      id={option.value}
-                      value={option.value}
-                      className="hidden"
-                    />
-                    <label
-                      htmlFor={option.value}
-                      className="flex flex-col items-center cursor-pointer"
-                    >
-                      <DynamicFaIcon
-                        name={option.value}
-                        className="text-2xl"
+                      <input
+                        onChange={fieldHandler.bind(this)}
+                        type="radio"
+                        name="icon"
+                        id={option.value}
+                        value={option.value}
+                        className="hidden peer"
                       />
-                    </label>
+                      <label
+                        htmlFor={option.value}
+                        className="flex items-center justify-center cursor-pointer border-2 p-2 rounded text-2xl md:text-3xl peer-checked:border-dark peer-checked:bg-dark peer-checked:text-white hover:bg-dark/80 hover:text-white transition-all duration-150"
+                        title={option.label}
+                      >
+                        <DynamicFaIcon
+                          name={option.value}
+                        />
+                      </label>
                   </div>
                   ))}
                 </div>
