@@ -105,7 +105,7 @@ export default function Admin(props) {
             <h1 className="text-2xl lg:text-3xl font-bold">Admin</h1>
             <p className="text-lg">Welcome to admin page!</p>
             <button 
-              className="mt-10 bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-9 rounded-full"
+              className="mt-5 bg-dark hover:bg-dark/50 text-white font-bold py-4 px-24 rounded-full transition-all duration-200 ease-in-out"
               onClick={() => Router.push('/admin/create')}
             >
               Add New Link
