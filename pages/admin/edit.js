@@ -274,8 +274,8 @@ export default function Edit(props) {
                   ))}
                 </div>
               </div>
-              <button type="submit" className="bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out mb-1 font-semibold">Save Changes</button>
-              <button type="button" className="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 transition-all duration-200 ease-in-out mb-1" onClick={() => Router.push('/admin')}>Cancel</button>
+              <button type="submit" className="bg-dark text-white p-2 rounded-full hover:bg-dark/50 transition-all duration-200 ease-in-out mb-1 font-semibold">Save Changes</button>
+              <button type="button" className="bg-gray-300 text-black p-2 rounded-full hover:bg-gray-400 transition-all duration-200 ease-in-out mb-1" onClick={() => Router.push('/admin')}>Cancel</button>
               {status}
             </form>
           </section>
