@@ -84,8 +84,13 @@ export default function Admin(props) {
   const copyToClipboard = (url, e) => {
     e.preventDefault();
     navigator.clipboard.writeText(url);
-
-    alert('URL Copied to clipboard!');
+  
+    Swal.fire({
+      icon: 'success',
+      title: 'URL Copied to clipboard!',
+      showConfirmButton: false,
+      timer: 1500
+    });
   }
 
   return (
