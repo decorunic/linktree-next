@@ -6,12 +6,17 @@ import Layout from '../components/Layout';
 import { AppContext } from '../context/app-context';
 
 export async function getServerSideProps() {
+  const id = 1;
+  const profileReq = await fetch('http://localhost:3000/api/profile/detail?id=' + id);
+
   const linkReq = await fetch('http://localhost:3000/api/links');
 
+  const profiles = await profileReq.json();
   const links = await linkReq.json();
-
+  
   return {
     props: {
+      profile: profiles.data,
       links: links.data
     } 
   }
@@ -33,7 +38,7 @@ export default function Home(props) {
       title="Linktree &#8211; Decorunic Furniture Hemat Ruang Minimalis Space Saving" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
     >
-      <Hero />
+      <Hero profile={props.profile} />
       <AppContext.Provider value={appContextValue}>
         <Header />
         <main id="content">

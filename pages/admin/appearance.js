@@ -1,50 +1,80 @@
 import Layout from '../../components/Layout';
 import { authorizationPage } from '../../middlewares/authorizationPage';
+import { useState } from 'react';
 
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
 
+  const id = 1;
+
+  const profileReq = await fetch('http://localhost:3000/api/profile/detail?id=' + id, {
+    headers: {
+      'Authorization': 'Bearer ' + token
+    }
+  });
+
+  const res = await profileReq.json();
+
+  // console.log(res);
+
   return {
     props: {
       token,
+      profile: res.data
     }
   }
 }
 
-export default function Appearance() {
+export default function Appearance(props) {
+   
+  // console.log(props.profile);
+  // return;
+  const { profile } = props;
+
+  const [fields, setFields] = useState({
+    title: profile.title,
+    bio: profile.bio,
+    logo: profile.logo,
+    hero: profile.hero
+  });
 
   async function updateHandler(e) {
     e.preventDefault();
 
-    const res = await fetch('http://localhost:3000/api/profile/update', {
+    const { token } = props;
+
+    const update = await fetch('http://localhost:3000/api/profile/update?id=' + profile.id, {
       method: 'PUT',
       headers: {
+        'Authorization': 'Bearer ' + token,
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({
-        title: e.target.title.value,
-        description: e.target.description.value,
-        logo: e.target.logo.value,
-        favicon: e.target.favicon.value,
-        footer: e.target.footer.value,
-      })
+      body: JSON.stringify(fields)
     });
 
-    const data = await res.json();
+    if (!update.ok) return;
 
-    if (data.status === 'success') {
-      Swal.fire({
-        icon: 'success',
-        title: 'Success',
-        text: data.message,
-      });
-    } else {
-      Swal.fire({
-        icon: 'error',
-        title: 'Error',
-        text: data.message,
-      });
-    }
+    const res = await update.json();
+
+    Swal.fire({
+      title: 'Success',
+      text: 'Profile successfully updated',
+      icon: 'success',
+      confirmButtonText: 'Ok'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Router.push('/admin/appearance');
+      }
+    });
+  }
+
+  function fieldHandler(e) {
+    const name = e.target.getAttribute('name');
+
+    setFields({
+      ...fields,
+      [name]: e.target.value
+    });
   }
 
   return (
@@ -57,27 +87,34 @@ export default function Appearance() {
         <div className="flex flex-wrap items-center justify-center px-4">
           <section className="w-full  md:w-[70%] lg:w-1/2">
             <h1 className="text-2xl lg:text-3xl font-bold text-center">Profile</h1>
-            {/* <p className="text-lg">Coming soon...</p> */}
             <form
               onSubmit={updateHandler.bind(this)}
               className="flex flex-col mt-10 gap-x-5 gap-y-1"
             >
               <label
                 htmlFor="hero"
-                className="cursor-pointer group relative overflow-hidden w-full h-[30vh] md:h-[40vh] rounded"
+                className="group relative overflow-hidden w-full h-[30vh] md:h-[40vh] rounded"
               >
                 <div className="bg-dark w-full h-full absolute z-[1] opacity-20"></div>
-                <video
-                  className="w-full h-full object-cover object-center absolute top-0 left-0"
-                  autoPlay
-                  loop
-                  muted
+                <picture
+                  className="w-full h-full object-cover absolute top-0 left-0"
                 >
-                  <source src="/video/hero.mp4" type="video/mp4" />
-                </video>
+                  <img 
+                    src={`/img/${profile.hero}`} 
+                    alt="Hero"
+                    className="w-full h-full object-cover object-center" 
+                  />
+                </picture>
               </label>
               <input
+                id="old_hero"
+                name="old_hero"
+                type="hidden"
+                defaultValue={profile.hero}
+              />
+              <input
                 id="hero"
+                onChange={fieldHandler.bind(this)}
                 name="hero"
                 type="file"
                 className="hidden"
@@ -93,11 +130,18 @@ export default function Appearance() {
                         Change
                       </div>
                       <picture>
-                        <img className="rounded-full max-w-[120px] md:max-w-[150px] lg:max-w-[180px] object-cover" src="/img/logo.webp" alt="logo decorunic" />
+                        <img className="rounded-full max-w-[120px] md:max-w-[150px] lg:max-w-[180px] object-cover" src={`/img/${profile.logo}`} alt="logo decorunic" />
                       </picture>
                     </label>
                     <input
+                      id="old_logo"
+                      name="old_logo"
+                      type="hidden"
+                      defaultValue={profile.logo}
+                    />
+                    <input
                       id="logo"
+                      onChange={fieldHandler.bind(this)}
                       name="logo"
                       type="file"
                       className="hidden"
@@ -113,10 +157,12 @@ export default function Appearance() {
                 </label>
                 <input
                   id="title"
+                  onChange={fieldHandler.bind(this)}
                   type="text" 
                   placeholder="e.g. Decorunic Linktree"
                   name="title"
                   className="border border-gray-300 p-2 rounded mb-4"
+                  defaultValue={profile.title}
                 />
 
               <label 
@@ -126,10 +172,12 @@ export default function Appearance() {
               </label>
               <input
                 id="bio"
+                onChange={fieldHandler.bind(this)}
                 type="text"
                 placeholder="e.g. Brand Furniture Hemat Ruang Minimalis Space Saving"
                 name="bio"
                 className="border border-gray-300 p-2 rounded mb-4"
+                defaultValue={profile.bio}
               />
               <button type="submit" className="bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out mb-1 font-semibold">Save Changes</button>
             </form>
