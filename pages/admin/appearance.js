@@ -27,6 +27,8 @@ export async function getServerSideProps(context) {
 
 export default function Appearance(props) {
   const { profile } = props;
+  // const [logo, setLogo] = useState(null);
+  // const [createObjectURL, setCreateObjectURL] = useState(null);
 
   const [fields, setFields] = useState({
     title: profile.title,
@@ -68,10 +70,22 @@ export default function Appearance(props) {
   function fieldHandler(e) {
     const name = e.target.getAttribute('name');
 
+    
+    if (e.target.files && e.target.files[0]) {
+      previewImage(e);
+    }
+
     setFields({
       ...fields,
       [name]: e.target.value
     });
+  }
+
+  function previewImage(e) {
+    const i = e.target.files[0];
+
+    setLogo(i);
+    setCreateObjectURL(URL.createObjectURL(i));
   }
 
   return (
@@ -98,7 +112,7 @@ export default function Appearance(props) {
                 >
                   <img 
                     src={`/img/${profile.hero}`} 
-                    alt="Hero"
+                    alt={`Hero ${profile.title}`}
                     className="w-full h-full object-cover object-center" 
                   />
                 </picture>
@@ -115,19 +129,25 @@ export default function Appearance(props) {
                 name="hero"
                 type="file"
                 className="hidden"
+                accept="image/*"
+                disabled
               />
               <div className="relative z-10 mb-20 lg:mb-24">
                 <div className="absolute -top-16 flex flex-col items-center w-full text-center md:-top-24 lg:-top-28">
                   <div className="flex justify-center mb-5">
                     <label
                       htmlFor="logo"
-                      className="cursor-pointer group rounded-full relative overflow-hidden shadow-lg shadow-black/20"
+                      className="group rounded-full relative overflow-hidden shadow-lg shadow-black/20 bg-white"
                     >
-                      <div className="absolute inset-0 bg-primary/75 flex items-center justify-center text-dark text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300">
+                      {/* <div className="absolute inset-0 bg-primary/75 flex items-center justify-center text-dark text-lg font-bold opacity-0 group-hover:opacity-100 transition duration-300">
                         Change
-                      </div>
+                      </div> */}
                       <picture>
-                        <img className="rounded-full max-w-[120px] md:max-w-[150px] lg:max-w-[180px] object-cover" src={`/img/${profile.logo}`} alt="logo decorunic" />
+                        <img 
+                          className="rounded-full max-w-[120px] md:max-w-[150px] lg:max-w-[180px] aspect-square object-cover" 
+                          // src={(logo ? createObjectURL : `/img/${profile.logo}`)}
+                          src={`/img/${profile.logo}`}
+                          alt={`Logo ${profile.title}`} />
                       </picture>
                     </label>
                     <input
@@ -142,6 +162,8 @@ export default function Appearance(props) {
                       name="logo"
                       type="file"
                       className="hidden"
+                      accept="image/*"
+                      disabled
                     />
                   </div>
                 </div>
