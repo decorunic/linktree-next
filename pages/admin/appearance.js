@@ -90,7 +90,7 @@ export default function Appearance(props) {
 
   return (
     <Layout 
-      title="Linktree &#8211; Admin" 
+      title="Linktree &#8211; Appearance" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
       back="/"
     >
