@@ -1,7 +1,8 @@
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import LogoutButton from '../LogoutButton';
 
-export default function Navbar({ isActiveHamburger }) {
+export default function Navbar({ isActiveHamburger, logoutHandler }) {
   const router = useRouter();
 
   return (
@@ -35,13 +36,7 @@ export default function Navbar({ isActiveHamburger }) {
           </Link>
         </li>
         <li className="mb-1 lg:hidden">
-          <Link
-            href="/auth/logout"
-          >
-            <span className="cursor-pointer text-base font-semibold mx-6 flex justify-center px-6 py-2 bg-transparent border-[1px] border-red-600 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all ease-in duration-75 dark:border-light dark:hover:border-red-600 dark:text-light lg:mx-4">
-              Logout
-            </span>
-          </Link>
+          <LogoutButton logoutHandler={logoutHandler}/>
         </li>
       </ul>
     </nav>

@@ -6,6 +6,7 @@ import { FaChevronLeft } from 'react-icons/fa';
 import Cookie from 'js-cookie';
 import Router from 'next/router';
 import Swal from 'sweetalert2';
+import LogoutButton from '../LogoutButton';
 
 export default function Navbar(props) {
 
@@ -66,17 +67,12 @@ export default function Navbar(props) {
                 />
                 <Nav
                   isActiveHamburger={isActiveHamburger}
+                  logoutHandler={logoutHandler}
                 />
               </div>
             </div>
             <div className="mb-1 hidden lg:block">
-              <button
-                className=" text-base font-semibold mx-6 flex px-6 py-2 bg-transparent border-[1px] border-red-600 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all ease-in duration-75 dark:border-light dark:hover:border-red-600 dark:text-light lg:mx-4"
-                type="button"
-                onClick={logoutHandler.bind(this)}
-              >
-                Logout
-              </button>
+              <LogoutButton logoutHandler={logoutHandler} />
             </div>
           </div>
         </div>

@@ -17,8 +17,6 @@ export async function getServerSideProps(context) {
 
   const res = await profileReq.json();
 
-  // console.log(res);
-
   return {
     props: {
       token,
@@ -28,9 +26,6 @@ export async function getServerSideProps(context) {
 }
 
 export default function Appearance(props) {
-   
-  // console.log(props.profile);
-  // return;
   const { profile } = props;
 
   const [fields, setFields] = useState({
