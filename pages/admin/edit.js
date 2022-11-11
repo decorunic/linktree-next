@@ -156,7 +156,7 @@ export default function Edit(props) {
     Swal.fire({
       title: 'Success',
       text: 'Link successfully updated',
-      icon: 'success',
+      icon: {status},
       confirmButtonText: 'Ok'
     }).then((result) => {
       if(result.isConfirmed) {
@@ -201,6 +201,7 @@ export default function Edit(props) {
                 name="name"
                 className="border border-gray-300 p-2 rounded mb-4"
                 defaultValue={link.name}
+                required
               />
 
               <label 
@@ -216,6 +217,7 @@ export default function Edit(props) {
                 name="url"
                 className="border border-gray-300 p-2 rounded mb-4"
                 defaultValue={link.url}
+                required
               />
 
               <label 
@@ -228,6 +230,7 @@ export default function Edit(props) {
                 name="type"
                 onChange={fieldHandler.bind(this)}
                 className="border border-gray-300 p-2 rounded mb-4"
+                required
               >
                 {typeOptions.map((option, index) => (
                   <option
@@ -258,8 +261,9 @@ export default function Edit(props) {
                         name="icon"
                         id={option.value}
                         value={option.value}
-                        className="hidden peer"
+                        className="opacity-0 absolute peer"
                         defaultChecked={option.value === link.icon}
+                        required={(fields.type === 'social') ? true : false}
                       />
                       <label
                         htmlFor={option.value}
@@ -276,7 +280,6 @@ export default function Edit(props) {
               </div>
               <button type="submit" className="bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out mb-1 font-semibold">Save Changes</button>
               <button type="button" className="bg-gray-300 text-black p-2 rounded hover:bg-gray-400 transition-all duration-200 ease-in-out mb-1" onClick={() => Router.push('/admin')}>Cancel</button>
-              {status}
             </form>
           </section>
         </div>

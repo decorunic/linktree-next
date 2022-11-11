@@ -187,6 +187,7 @@ export default function Create(props) {
                 placeholder="Link Name"
                 name="name"
                 className="border border-gray-300 p-2 rounded mb-4"
+                required
               />
               <label 
                 htmlFor="url"
@@ -200,6 +201,7 @@ export default function Create(props) {
                 placeholder="Link URL"
                 name="url"
                 className="border border-gray-300 p-2 rounded mb-4"
+                required
               />
               
               <label 
@@ -212,6 +214,7 @@ export default function Create(props) {
                 name="type"
                 onChange={fieldHandler.bind(this)}
                 className="border border-gray-300 p-2 rounded mb-4"
+                required
               >
                 <option value="">Select Link Type</option>
                 {typeOptions.map((option, index) => (
@@ -234,7 +237,7 @@ export default function Create(props) {
                   {socialIconOptions.map((option, index) => (
                     <div
                       key={index}
-                      className="w-[calc(100%/6-0.5rem)]"
+                      className="w-[calc(100%/6-0.5rem)] relative"
                     >
                       <input
                         onChange={fieldHandler.bind(this)}
@@ -242,7 +245,8 @@ export default function Create(props) {
                         name="icon"
                         id={option.value}
                         value={option.value}
-                        className="hidden peer"
+                        className="opacity-0 absolute peer"
+                        required={(fields.type === 'social') ? true : false}
                       />
                       <label
                         htmlFor={option.value}

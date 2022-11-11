@@ -163,6 +163,7 @@ export default function Appearance(props) {
                   name="title"
                   className="border border-gray-300 p-2 rounded mb-4"
                   defaultValue={profile.title}
+                  required
                 />
 
               <label 
@@ -178,6 +179,7 @@ export default function Appearance(props) {
                 name="bio"
                 className="border border-gray-300 p-2 rounded mb-4"
                 defaultValue={profile.bio}
+                required
               />
               <button type="submit" className="bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out mb-1 font-semibold">Save Changes</button>
             </form>
