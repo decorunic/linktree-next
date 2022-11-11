@@ -23,11 +23,14 @@ export async function getServerSideProps() {
 }
 
 export default function Home(props) {
-  const socialLinks = props.links.filter(link => link.type === 'social');
-  const generalLinks = props.links.filter(link => link.type === 'general');
-  const marketplaceLinks = props.links.filter(link => link.type === 'marketplace');
+  const { profile, links } = props;
+
+  const socialLinks = links.filter(link => link.type === 'social');
+  const generalLinks = links.filter(link => link.type === 'general');
+  const marketplaceLinks = links.filter(link => link.type === 'marketplace');
 
   const appContextValue = {
+    profile,
     socialLinks,
     generalLinks,
     marketplaceLinks,
@@ -38,8 +41,8 @@ export default function Home(props) {
       title="Linktree &#8211; Decorunic Furniture Hemat Ruang Minimalis Space Saving" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
     >
-      <Hero profile={props.profile} />
       <AppContext.Provider value={appContextValue}>
+        <Hero />
         <Header />
         <main id="content">
           <Body />

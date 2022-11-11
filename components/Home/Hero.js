@@ -1,4 +1,10 @@
-export default function Hero({ profile }) {
+import { useContext } from 'react';
+import { AppContext } from '../../context/app-context';
+
+export default function Hero() {
+  const context = useContext(AppContext);
+  const profile = context.profile;
+
   return (
     <section id="hero">
         <div className="w-full h-[30vh] relative md:h-[50vh]">
