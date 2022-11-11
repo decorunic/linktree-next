@@ -6,16 +6,16 @@ export default async function handler(req, res) {
   
   const auth = await authorization(req, res);
 
-  const id = 1;
-  const { name, url, type, icon } = req.body;
+  const { id } = req.query;
+  const { title, bio, logo, hero } = req.body;
 
   const update = await db('profile')
                         .where({ id })
                         .update({
-                          name,
-                          url,
-                          type,
-                          icon
+                          title,
+                          bio,
+                          logo,
+                          hero
                         });
 
   // console.log(update);

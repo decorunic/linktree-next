@@ -1,6 +1,8 @@
 import Layout from '../../components/Layout';
 import { authorizationPage } from '../../middlewares/authorizationPage';
+import Router from 'next/router';
 import { useState } from 'react';
+import Swal from 'sweetalert2';
 
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
@@ -63,7 +65,7 @@ export default function Appearance(props) {
       confirmButtonText: 'Ok'
     }).then((result) => {
       if (result.isConfirmed) {
-        Router.push('/admin/appearance');
+        Router.replace('/admin/appearance');
       }
     });
   }
