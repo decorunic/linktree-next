@@ -6,13 +6,13 @@
 module.exports = {
 
   development: {
-    client: "mysql",
+    client: process.env.DB_CLIENT,
     connection: {
-      host: "5.181.216.69",
-      port: "3306",
-      user: "u1104016_decorunic_linktree",
-      password: "u1104016_decorunic_linktree",
-      database: "sembarang5758"
+      host: process.env.DB_HOST,
+      port: process.env.DB_PORT,
+      user: process.env.DB_USERNAME,
+      password: process.env.DB_PASSWORD,
+      database: process.env.DB_DATABASE
     }
   },
 
