@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "knex": "dotenv -e .env.development knex"
+    "knex": "dotenv -e .env.development.local knex"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
