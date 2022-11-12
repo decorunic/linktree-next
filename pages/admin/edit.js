@@ -156,7 +156,7 @@ export default function Edit(props) {
     Swal.fire({
       title: 'Success',
       text: 'Link successfully updated',
-      icon: {status},
+      icon: status,
       confirmButtonText: 'Ok'
     }).then((result) => {
       if(result.isConfirmed) {

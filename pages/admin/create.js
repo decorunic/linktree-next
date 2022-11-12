@@ -143,7 +143,7 @@ export default function Create(props) {
     Swal.fire({
       title: 'Success!',
       text: 'Link successfully created',
-      icon: {status},
+      icon: status,
       confirmButtonText: 'Ok'
     }).then((result) => {
       if (result.isConfirmed) {
