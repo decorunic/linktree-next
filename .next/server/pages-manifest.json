@@ -10,14 +10,14 @@
   "/api/links/update": "pages/api/links/update.js",
   "/api/profile/detail": "pages/api/profile/detail.js",
   "/api/profile/update": "pages/api/profile/update.js",
-  "/admin/analytics": "pages/admin/analytics.js",
   "/admin/appearance": "pages/admin/appearance.js",
   "/admin/create": "pages/admin/create.js",
   "/admin/edit": "pages/admin/edit.js",
-  "/_error": "pages/_error.js",
   "/admin": "pages/admin.js",
   "/": "pages/index.js",
+  "/_error": "pages/_error.js",
   "/auth/login": "pages/auth/login.js",
+  "/admin/analytics": "pages/admin/analytics.js",
   "/_document": "pages/_document.js",
   "/404": "pages/404.html"
 }
