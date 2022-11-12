@@ -1,0 +1,23 @@
+{
+  "/_app": "pages/_app.js",
+  "/api/auth/.register": "pages/api/auth/.register.js",
+  "/api/auth/login": "pages/api/auth/login.js",
+  "/api/hello": "pages/api/hello.js",
+  "/api/links/create": "pages/api/links/create.js",
+  "/api/links/delete": "pages/api/links/delete.js",
+  "/api/links/detail": "pages/api/links/detail.js",
+  "/api/links": "pages/api/links.js",
+  "/api/links/update": "pages/api/links/update.js",
+  "/api/profile/detail": "pages/api/profile/detail.js",
+  "/api/profile/update": "pages/api/profile/update.js",
+  "/admin/analytics": "pages/admin/analytics.js",
+  "/admin/appearance": "pages/admin/appearance.js",
+  "/admin/create": "pages/admin/create.js",
+  "/admin/edit": "pages/admin/edit.js",
+  "/_error": "pages/_error.js",
+  "/admin": "pages/admin.js",
+  "/": "pages/index.js",
+  "/auth/login": "pages/auth/login.js",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}
