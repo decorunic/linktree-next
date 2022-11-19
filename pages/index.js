@@ -7,9 +7,9 @@ import { AppContext } from '../context/app-context';
 
 export async function getServerSideProps() {
   const id = 1;
-  const profileReq = await fetch('http://localhost:3000/api/profile/detail?id=' + id);
+  const profileReq = await fetch('/api/profile/detail?id=' + id);
 
-  const linkReq = await fetch('http://localhost:3000/api/links');
+  const linkReq = await fetch('/api/links');
 
   const profiles = await profileReq.json();
   const links = await linkReq.json();

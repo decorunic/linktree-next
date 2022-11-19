@@ -125,7 +125,7 @@ export default function Create(props) {
 
     // console.log(fields);
 
-    const create = await fetch('http://localhost:3000/api/links/create', {
+    const create = await fetch('/api/links/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
