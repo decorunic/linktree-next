@@ -9,7 +9,7 @@ export async function getServerSideProps(context) {
 
   const id = 1;
 
-  const profileReq = await fetch('/api/profile/detail?id=' + id, {
+  const profileReq = await fetch('https://linktree.decorunic.id/api/profile/detail?id=' + id, {
     headers: {
       'Authorization': 'Bearer ' + token
     }
@@ -42,7 +42,7 @@ export default function Appearance(props) {
 
     const { token } = props;
 
-    const update = await fetch('/api/profile/update?id=' + profile.id, {
+    const update = await fetch('https://linktree.decorunic.id/api/profile/update?id=' + profile.id, {
       method: 'PUT',
       headers: {
         'Authorization': 'Bearer ' + token,

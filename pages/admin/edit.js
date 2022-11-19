@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
 
   const { id } = context.query;
 
-  const linkReq = await fetch('/api/links/detail?id=' + id, {
+  const linkReq = await fetch('https://linktree.decorunic.id/api/links/detail?id=' + id, {
     headers: {
       'Authorization': 'Bearer ' + token
     }
@@ -138,7 +138,7 @@ export default function Edit(props) {
 
     const { token } = props;
 
-    const update = await fetch('/api/links/update?id=' + link.id, {
+    const update = await fetch('https://linktree.decorunic.id/api/links/update?id=' + link.id, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

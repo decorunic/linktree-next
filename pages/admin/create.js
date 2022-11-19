@@ -125,7 +125,7 @@ export default function Create(props) {
 
     // console.log(fields);
 
-    const create = await fetch('/api/links/create', {
+    const create = await fetch('https://linktree.decorunic.id/api/links/create', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

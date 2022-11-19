@@ -24,7 +24,7 @@ export default function Login() {
   async function loginHandler(e) {
     e.preventDefault();
     
-    const loginReq =  await fetch('/api/auth/login', {
+    const loginReq =  await fetch('https://linktree.decorunic.id/api/auth/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
