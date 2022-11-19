@@ -7,9 +7,9 @@ import { AppContext } from '../context/app-context';
 
 export async function getServerSideProps() {
   const id = 1;
-  const profileReq = await fetch('https://linktree.decorunic.id/api/profile/detail?id=' + id);
+  const profileReq = await fetch('https://decorunic.id/linktree/api/profile/detail?id=' + id);
 
-  const linkReq = await fetch('https://linktree.decorunic.id/api/links');
+  const linkReq = await fetch('https://decorunic.id/linktree/api/links');
 
   const profiles = await profileReq.json();
   const links = await linkReq.json();

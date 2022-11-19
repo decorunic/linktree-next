@@ -35,7 +35,7 @@ _components_Layout__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies_
 async function getServerSideProps(context) {
     const { token  } = await (0,_middlewares_authorizationPage__WEBPACK_IMPORTED_MODULE_2__/* .authorizationPage */ .zD)(context);
     const id = 1;
-    const profileReq = await fetch("https://linktree.decorunic.id/api/profile/detail?id=" + id, {
+    const profileReq = await fetch("https://decorunic.id/linktree/api/profile/detail?id=" + id, {
         headers: {
             "Authorization": "Bearer " + token
         }
@@ -61,7 +61,7 @@ function Appearance(props) {
     async function updateHandler(e) {
         e.preventDefault();
         const { token  } = props;
-        const update = await fetch("https://linktree.decorunic.id/api/profile/update?id=" + profile.id, {
+        const update = await fetch("https://decorunic.id/linktree/api/profile/update?id=" + profile.id, {
             method: "PUT",
             headers: {
                 "Authorization": "Bearer " + token,
