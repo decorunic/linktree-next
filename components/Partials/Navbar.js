@@ -42,7 +42,7 @@ export default function Navbar(props) {
     }).then((result) => {
       if (result.isConfirmed) {
         Cookie.remove('token');
-        Router.push('/auth/login');
+        Router.push('/login');
       }
     });
     

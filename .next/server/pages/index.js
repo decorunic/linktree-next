@@ -78,6 +78,8 @@ function GeneralButton() {
         className: "flex flex-wrap justify-center gap-5 md:gap-y-5 md:gap-x-10 lg:gap-x-14",
         children: context.generalLinks.map((item, index)=>/*#__PURE__*/ jsx_runtime_.jsx("a", {
                 href: item.url,
+                target: "_blank",
+                rel: "noopener noreferrer",
                 className: "w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30",
                 children: item.name
             }, index))
@@ -100,6 +102,8 @@ function MarketplaceButton() {
                 className: "flex flex-wrap justify-center gap-5 md:gap-y-5 md:gap-x-10 lg:gap-x-14",
                 children: context.marketplaceLinks.map((item, index)=>/*#__PURE__*/ jsx_runtime_.jsx("a", {
                         href: item.url,
+                        target: "_blank",
+                        rel: "noopener noreferrer",
                         className: "w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30",
                         children: item.name
                     }, index))
@@ -153,6 +157,8 @@ function SocialMediaButton() {
         className: "flex flex-wrap mt-5 gap-2 md:gap-3",
         children: context.socialLinks.map((item, index)=>/*#__PURE__*/ jsx_runtime_.jsx("a", {
                 href: item.url,
+                target: "_blank",
+                rel: "noopener noreferrer",
                 className: "text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50",
                 children: /*#__PURE__*/ jsx_runtime_.jsx(DynamicFAIcon/* default */.Z, {
                     name: item.icon
@@ -177,7 +183,7 @@ function Header() {
                 /*#__PURE__*/ jsx_runtime_.jsx("picture", {
                     children: /*#__PURE__*/ jsx_runtime_.jsx("img", {
                         className: "rounded-full shadow-lg shadow-black/20 max-w-[120px] md:max-w-[250px] object-cover",
-                        src: `/img/${profile.logo}`,
+                        src: `/linktree/img/${profile.logo}`,
                         alt: `Logo ${profile.title}`
                     })
                 }),
@@ -226,7 +232,7 @@ function Hero() {
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("picture", {
                     className: "w-full h-full object-cover absolute top-0 left-0",
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                        src: `/img/${profile.hero}`,
+                        src: `/linktree/img/${profile.hero}`,
                         alt: "Hero",
                         className: "w-full h-full object-cover object-center"
                     })

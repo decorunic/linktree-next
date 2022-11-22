@@ -19,7 +19,7 @@ function unauthorizedPage(context) {
         const allCookies = next_cookies__WEBPACK_IMPORTED_MODULE_0___default()(context);
         if (allCookies.token) {
             return context.res.writeHead(302, {
-                Location: "/admin"
+                Location: "/linktree/admin"
             }).end();
         }
         return resolve("unauthorized");
@@ -30,7 +30,7 @@ function authorizationPage(context) {
         const allCookies = next_cookies__WEBPACK_IMPORTED_MODULE_0___default()(context);
         if (!allCookies.token) {
             return context.res.writeHead(302, {
-                Location: "/auth/login"
+                Location: "/linktree/login"
             }).end();
         }
         return resolve({
@@ -41,8 +41,8 @@ function authorizationPage(context) {
 function logout(context) {
     return new Promise((resolve)=>{
         context.res.writeHead(302, {
-            Location: "/auth/login",
-            "Set-Cookie": "token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
+            Location: "/linktree/login",
+            "Set-Cookie": "token=; path=/linktree; expires=Thu, 01 Jan 1970 00:00:01 GMT;"
         }).end();
     });
 }

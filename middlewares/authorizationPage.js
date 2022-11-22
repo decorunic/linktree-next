@@ -6,7 +6,7 @@ export function unauthorizedPage(context) {
   
     if (allCookies.token) {
       return context.res.writeHead(302, 
-        { Location: '/admin' 
+        { Location: '/linktree/admin' 
       }).end();
     }
 
@@ -20,7 +20,7 @@ export function authorizationPage(context) {
 
     if(!allCookies.token) {
       return context.res.writeHead(302, {
-        Location: '/auth/login'
+        Location: '/linktree/login'
       }).end();
     }
 
@@ -33,8 +33,8 @@ export function authorizationPage(context) {
 export function logout(context) {
   return new Promise(resolve => {
     context.res.writeHead(302, {
-      Location: '/auth/login',
-      'Set-Cookie': 'token=; path=/; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
+      Location: '/linktree/login',
+      'Set-Cookie': 'token=; path=/linktree; expires=Thu, 01 Jan 1970 00:00:01 GMT;'
     }).end();
   })
 }

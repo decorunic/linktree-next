@@ -123,6 +123,8 @@ export default function Admin(props) {
                   >
                     <a 
                       href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="cursor-pointer hover:text-secondary active:text-secondary/60"
                       onClick={copyToClipboard.bind(this, item.url)}
                     >
@@ -166,6 +168,8 @@ export default function Admin(props) {
                       <div className="overflow-hidden overflow-ellipsis whitespace-nowrap w-48 md:w-56 lg:w-80">
                         <a 
                           href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-sm cursor-pointer hover:text-secondary active:text-secondary/60"
                           onClick={copyToClipboard.bind(this, item.url)}
                         >
@@ -207,6 +211,8 @@ export default function Admin(props) {
                       <div className="overflow-hidden overflow-ellipsis whitespace-nowrap w-48 md:w-56 lg:w-80">
                         <a 
                           href={item.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
                           className="text-sm cursor-pointer hover:text-secondary active:text-secondary/60"
                           onClick={copyToClipboard.bind(this, item.url)}
                         >

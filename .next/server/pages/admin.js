@@ -162,6 +162,8 @@ function Admin(props) {
                                         children: [
                                             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                                 href: item.url,
+                                                target: "_blank",
+                                                rel: "noopener noreferrer",
                                                 className: "cursor-pointer hover:text-secondary active:text-secondary/60",
                                                 onClick: copyToClipboard.bind(this, item.url),
                                                 children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(_components_DynamicFAIcon__WEBPACK_IMPORTED_MODULE_1__/* ["default"] */ .Z, {
@@ -219,6 +221,8 @@ function Admin(props) {
                                                         className: "overflow-hidden overflow-ellipsis whitespace-nowrap w-48 md:w-56 lg:w-80",
                                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                                             href: item.url,
+                                                            target: "_blank",
+                                                            rel: "noopener noreferrer",
                                                             className: "text-sm cursor-pointer hover:text-secondary active:text-secondary/60",
                                                             onClick: copyToClipboard.bind(this, item.url),
                                                             children: item.url
@@ -272,6 +276,8 @@ function Admin(props) {
                                                         className: "overflow-hidden overflow-ellipsis whitespace-nowrap w-48 md:w-56 lg:w-80",
                                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("a", {
                                                             href: item.url,
+                                                            target: "_blank",
+                                                            rel: "noopener noreferrer",
                                                             className: "text-sm cursor-pointer hover:text-secondary active:text-secondary/60",
                                                             onClick: copyToClipboard.bind(this, item.url),
                                                             children: item.url

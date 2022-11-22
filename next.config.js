@@ -2,13 +2,18 @@
 const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
-  rewrites() {
+  basePath: '/linktree',
+  async rewrites() {
     return [
       {
-        source: "/",
-        destination: "https://decorunic.id/",
+        source: '/',
+        destination: '/index',
       },
-    ];
+      {
+        source: '/login',
+        destination: '/auth/login',
+      },
+    ]
   }
 }
 

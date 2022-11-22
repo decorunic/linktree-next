@@ -20,11 +20,11 @@ export default function Layout(props) {
         <meta name="google-site-verification" content="" />
         <meta name="msvalidate.01" content="" />
         <link rel="canonical" href="https://decorunic.id" />
-        <link rel="mask-icon" href="/favicon.ico" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="mask-icon" href="/linktree/favicon.ico" />
+        <link rel="icon" href="/linktree/favicon.ico" />
         <meta name="theme-color" content="#FB6107" />
         <meta name="msapplication-TileColor" content="#FB6107" />
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/linktree/manifest.json" />
         <meta property="og:title" content={title} />
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />

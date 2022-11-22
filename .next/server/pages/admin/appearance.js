@@ -126,7 +126,7 @@ function Appearance(props) {
                                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("picture", {
                                             className: "w-full h-full object-cover absolute top-0 left-0",
                                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
-                                                src: `/img/${profile.hero}`,
+                                                src: `/linktree/img/${profile.hero}`,
                                                 alt: `Hero ${profile.title}`,
                                                 className: "w-full h-full object-cover object-center"
                                             })
@@ -162,7 +162,7 @@ function Appearance(props) {
                                                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("img", {
                                                             className: "rounded-full max-w-[120px] md:max-w-[150px] lg:max-w-[180px] aspect-square object-cover",
                                                             // src={(logo ? createObjectURL : `/img/${profile.logo}`)}
-                                                            src: `/img/${profile.logo}`,
+                                                            src: `/linktree/img/${profile.logo}`,
                                                             alt: `Logo ${profile.title}`
                                                         })
                                                     })

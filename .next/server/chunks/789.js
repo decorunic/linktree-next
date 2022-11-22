@@ -67,11 +67,11 @@ function Layout(props) {
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
                         rel: "mask-icon",
-                        href: "/favicon.ico"
+                        href: "/linktree/favicon.ico"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
                         rel: "icon",
-                        href: "/favicon.ico"
+                        href: "/linktree/favicon.ico"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
                         name: "theme-color",
@@ -83,7 +83,7 @@ function Layout(props) {
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("link", {
                         rel: "manifest",
-                        href: "/manifest.json"
+                        href: "/linktree/manifest.json"
                     }),
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("meta", {
                         property: "og:title",
@@ -322,7 +322,7 @@ function Navbar(props) {
         }).then((result)=>{
             if (result.isConfirmed) {
                 js_cookie__WEBPACK_IMPORTED_MODULE_6__["default"].remove("token");
-                next_router__WEBPACK_IMPORTED_MODULE_7___default().push("/auth/login");
+                next_router__WEBPACK_IMPORTED_MODULE_7___default().push("/login");
             }
         });
     };

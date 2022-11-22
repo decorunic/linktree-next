@@ -13,7 +13,7 @@ export default function Hero() {
             className="w-full h-full object-cover absolute top-0 left-0"
           >
             <img 
-              src={`/img/${profile.hero}`} 
+              src={`/linktree/img/${profile.hero}`} 
               alt="Hero"
               className="w-full h-full object-cover object-center" 
             />
