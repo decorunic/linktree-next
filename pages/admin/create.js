@@ -111,7 +111,8 @@ export default function Create(props) {
     name: '',
     url: '',
     icon: '',
-    type: ''
+    type: '',
+    new_tab: '',
   });
 
   const [status, setStatus] = useState();
@@ -226,6 +227,22 @@ export default function Create(props) {
                   </option>
                 ))}
               </select>
+
+              <div className="flex items-center gap-x-2 mb-4">
+                <input
+                  id="new_tab"
+                  onChange={fieldHandler.bind(this)}
+                  type="checkbox"
+                  name="new_tab"
+                  className="border border-gray-300 p-2 rounded"
+                />
+
+                <label
+                  htmlFor="new_tab"
+                >
+                  Open in New Tab
+                </label>
+              </div>
               
               <div className={(fields.type !== 'social') ? 'hidden' : 'block' }>
                 <label

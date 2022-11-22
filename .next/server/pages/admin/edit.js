@@ -169,7 +169,8 @@ function Edit(props) {
         name: link.name,
         url: link.url,
         icon: link.icon,
-        type: link.type
+        type: link.type,
+        new_tab: link.new_tab
     });
     const { 0: status , 1: setStatus  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)();
     async function updateHandler(e) {
@@ -268,6 +269,23 @@ function Edit(props) {
                                             selected: option.value === link.type,
                                             children: option.label
                                         }, index))
+                                }),
+                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                    className: "flex items-center gap-x-2 mb-4",
+                                    children: [
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                            id: "new_tab",
+                                            onChange: fieldHandler.bind(this),
+                                            type: "checkbox",
+                                            name: "new_tab",
+                                            className: "border border-gray-300 p-2 rounded",
+                                            defaultChecked: link.new_tab
+                                        }),
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+                                            htmlFor: "new_tab",
+                                            children: "Open in New Tab"
+                                        })
+                                    ]
                                 }),
                                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
                                     className: fields.type !== "social" ? "hidden" : "block",

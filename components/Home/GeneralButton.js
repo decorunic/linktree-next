@@ -5,7 +5,7 @@ export default function GeneralButton() {
   const context = useContext(AppContext);
 
   return (
-    <div className="flex flex-wrap justify-center gap-5 md:gap-y-5 md:gap-x-10 lg:gap-x-14">
+    <div className="flex flex-wrap justify-center pt-3 gap-5 md:pt-0 md:gap-y-5 md:gap-x-10 lg:gap-x-14">
       {
         context.generalLinks.map((item, index) => (
           <a 

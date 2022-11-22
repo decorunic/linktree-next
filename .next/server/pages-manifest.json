@@ -10,12 +10,12 @@
   "/api/profile/detail": "pages/api/profile/detail.js",
   "/api/profile/update": "pages/api/profile/update.js",
   "/admin/analytics": "pages/admin/analytics.js",
-  "/admin/appearance": "pages/admin/appearance.js",
   "/admin/edit": "pages/admin/edit.js",
-  "/admin/create": "pages/admin/create.js",
   "/admin": "pages/admin.js",
   "/": "pages/index.js",
   "/auth/login": "pages/auth/login.js",
+  "/admin/create": "pages/admin/create.js",
+  "/admin/appearance": "pages/admin/appearance.js",
   "/_document": "pages/_document.js",
   "/404": "pages/404.html"
 }

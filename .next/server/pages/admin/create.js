@@ -159,7 +159,8 @@ function Create(props) {
         name: "",
         url: "",
         icon: "",
-        type: ""
+        type: "",
+        new_tab: ""
     });
     const { 0: status , 1: setStatus  } = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)();
     async function createHandler(e) {
@@ -260,6 +261,22 @@ function Create(props) {
                                                 value: option.value,
                                                 children: option.label
                                             }, index))
+                                    ]
+                                }),
+                                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
+                                    className: "flex items-center gap-x-2 mb-4",
+                                    children: [
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
+                                            id: "new_tab",
+                                            onChange: fieldHandler.bind(this),
+                                            type: "checkbox",
+                                            name: "new_tab",
+                                            className: "border border-gray-300 p-2 rounded"
+                                        }),
+                                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
+                                            htmlFor: "new_tab",
+                                            children: "Open in New Tab"
+                                        })
                                     ]
                                 }),
                                 /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {

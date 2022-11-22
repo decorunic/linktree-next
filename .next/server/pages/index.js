@@ -75,7 +75,7 @@ var app_context = __webpack_require__(5049);
 function GeneralButton() {
     const context = (0,external_react_.useContext)(app_context/* AppContext */.I);
     return /*#__PURE__*/ jsx_runtime_.jsx("div", {
-        className: "flex flex-wrap justify-center gap-5 md:gap-y-5 md:gap-x-10 lg:gap-x-14",
+        className: "flex flex-wrap justify-center pt-3 gap-5 md:pt-0 md:gap-y-5 md:gap-x-10 lg:gap-x-14",
         children: context.generalLinks.map((item, index)=>/*#__PURE__*/ jsx_runtime_.jsx("a", {
                 href: item.url,
                 target: "_blank",
