@@ -12,7 +12,7 @@ export default function SocialMediaButton() {
           <a
             key={index} 
             href={item.url}
-            target="_blank"
+            target={item.new_tab ? '_blank' : '_self'}
             rel="noopener noreferrer"
             className="text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50">
             <DynamicFaIcon name={item.icon} />

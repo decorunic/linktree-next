@@ -9,7 +9,7 @@ export async function getServerSideProps(context) {
 
   const id = 1;
 
-  const profileReq = await fetch(`${url}linktree/api/profile/detail?id=${id}`, {
+  const profileReq = await fetch(`http://localhost:3000/linktree/api/profile/detail?id=${id}`, {
     headers: {
       'Authorization': 'Bearer ' + token
     }
@@ -40,12 +40,9 @@ export default function Appearance(props) {
   async function updateHandler(e) {
     e.preventDefault();
 
-    let url; 
-    (process.env.NODE_ENV === 'production') ? url = 'https://decorunic.id/': url = 'http://localhost:3000/';
-
     const { token } = props;
 
-    const update = await fetch(`${url}linktree/api/profile/update?id=${profile.id}`, {
+    const update = await fetch(`http://localhost:3000/linktree/api/profile/update?id=${profile.id}`, {
       method: 'PUT',
       headers: {
         'Authorization': 'Bearer ' + token,

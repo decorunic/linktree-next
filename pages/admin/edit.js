@@ -10,7 +10,7 @@ export async function getServerSideProps(context) {
 
   const { id } = context.query;
 
-  const linkReq = await fetch('https://decorunic.id/linktree/api/links/detail?id=' + id, {
+  const linkReq = await fetch('http://localhost:3000/linktree/api/links/detail?id=' + id, {
     headers: {
       'Authorization': 'Bearer ' + token
     }
@@ -134,15 +134,11 @@ export default function Edit(props) {
   async function updateHandler(e) {
     e.preventDefault();
 
-    let url; 
-    (process.env.NODE_ENV === 'production') ? url = 'https://decorunic.id/': url = 'http://localhost:3000/';
-
-    // return console.log(fields);
     setStatus('loading');
 
     const { token } = props;
 
-    const update = await fetch(`${url}linktree/api/links/update?id=${link.id}`, {
+    const update = await fetch(`http://localhost:3000/linktree/api/links/update?id=${link.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -160,7 +156,7 @@ export default function Edit(props) {
     Swal.fire({
       title: 'Success',
       text: 'Link successfully updated',
-      icon: status,
+      icon: 'success',
       confirmButtonText: 'Ok'
     }).then((result) => {
       if(result.isConfirmed) {
@@ -172,10 +168,17 @@ export default function Edit(props) {
   function fieldHandler(e) {
     const name = e.target.getAttribute('name');
 
-    setFields({
-      ...fields,
-      [name]: e.target.value
-    });
+    if(name === 'new_tab') {
+      setFields({
+        ...fields,
+        [name]: e.target.checked
+      });
+    } else {
+      setFields({
+        ...fields,
+        [name]: e.target.value
+      });
+    }
   }
 
   return (

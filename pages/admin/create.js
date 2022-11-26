@@ -120,16 +120,11 @@ export default function Create(props) {
   async function createHandler(e) {
     e.preventDefault();
 
-    let url; 
-    (process.env.NODE_ENV === 'production') ? url = 'https://decorunic.id/': url = 'http://localhost:3000/';
-
     setStatus('loading');
 
     const { token } = props;
 
-    // console.log(fields);
-
-    const create = await fetch(`${url}linktree/api/links/create`, {
+    const create = await fetch(`http://localhost:3000/linktree/api/links/create`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -147,7 +142,7 @@ export default function Create(props) {
     Swal.fire({
       title: 'Success!',
       text: 'Link successfully created',
-      icon: status,
+      icon: 'success',
       confirmButtonText: 'Ok'
     }).then((result) => {
       if (result.isConfirmed) {
@@ -159,10 +154,17 @@ export default function Create(props) {
   function fieldHandler(e) {
     const name = e.target.getAttribute('name');
 
-    setFields({
-      ...fields,
-      [name]: e.target.value
-    });
+    if(name === 'new_tab') {
+      setFields({
+        ...fields,
+        [name]: e.target.checked
+      });
+    } else {
+      setFields({
+        ...fields,
+        [name]: e.target.value
+      });
+    }
   }
 
   return (

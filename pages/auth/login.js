@@ -1,5 +1,5 @@
 import Cookies from 'js-cookie';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Router from 'next/router';
 import { unauthorizedPage } from '../../middlewares/authorizationPage';
 import Swal from 'sweetalert2';
@@ -23,11 +23,8 @@ export default function Login() {
 
   async function loginHandler(e) {
     e.preventDefault();
-
-    let url; 
-    (process.env.NODE_ENV === 'production') ? url = 'https://decorunic.id/': url = 'http://localhost:3000/';
  
-    const loginReq =  await fetch(`${url}linktree/api/auth/login`, {
+    const loginReq =  await fetch(`http://localhost:3000/linktree/api/auth/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

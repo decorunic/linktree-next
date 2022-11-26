@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   const auth = await authorization(req, res);
 
   const { id } = req.query;
-  const { name, url, type, icon } = req.body;
+  const { name, url, type, icon, new_tab } = req.body;
 
   const update = await db('links')
                         .where({ id })
@@ -15,10 +15,10 @@ export default async function handler(req, res) {
                           name,
                           url,
                           type,
-                          icon
+                          icon, 
+                          new_tab
                         });
 
-  // console.log(update);
   const updatedData = await db('links').where({ id }).first();
 
   res.status(200);

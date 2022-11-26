@@ -6,13 +6,14 @@ export default async function handler(req, res) {
 
   const auth = await authorization(req, res);
   
-  const { name, url, type, icon } = req.body;
+  const { name, url, type, icon, new_tab } = req.body;
   const create = await db('links')
                         .insert({
                           name,
                           url,
                           type,
-                          icon
+                          icon,
+                          new_tab
                         });
 
   const createData = await db('links')
