@@ -9,9 +9,8 @@ import Swal from 'sweetalert2';
 import LogoutButton from '../LogoutButton';
 
 export default function Navbar(props) {
-
   const [isActiveHamburger, setIsActiveHamburger] = useState(false);
-  
+
   useEffect(() => {
     window.onscroll = () => {
       const header = document.querySelector('#header-admin');

@@ -10,6 +10,10 @@ const nextConfig = {
         destination: '/index',
       },
       {
+        source: '/index',
+        destination: '/',
+      },
+      {
         source: '/login',
         destination: '/auth/login',
       },

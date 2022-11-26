@@ -8,7 +8,10 @@ import Swal from 'sweetalert2';
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
 
-  const linkReq = await fetch('https://decorunic.id/linktree/api/links');
+  let url; 
+  (process.env.NODE_ENV === 'production') ? url = 'https://decorunic.id/': url = 'http://localhost:3000/';
+
+  const linkReq = await fetch(`${url}linktree/api/links`);
   
   const links = await linkReq.json();
 
@@ -52,7 +55,7 @@ export default function Admin(props) {
 
       setLinks(linksFiltered);
 
-      const deleteReq = await fetch('https://decorunic.id/linktree/api/links/delete?id=' + id, {
+      const deleteReq = await fetch(`${url}linktree/api/links/delete?id=${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

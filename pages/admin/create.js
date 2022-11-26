@@ -120,13 +120,16 @@ export default function Create(props) {
   async function createHandler(e) {
     e.preventDefault();
 
+    let url; 
+    (process.env.NODE_ENV === 'production') ? url = 'https://decorunic.id/': url = 'http://localhost:3000/';
+
     setStatus('loading');
 
     const { token } = props;
 
     // console.log(fields);
 
-    const create = await fetch('https://decorunic.id/linktree/api/links/create', {
+    const create = await fetch(`${url}linktree/api/links/create`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

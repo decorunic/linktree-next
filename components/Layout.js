@@ -38,9 +38,6 @@ export default function Layout(props) {
 
       {router.pathname !== '/' && <Navbar back={back} />}
       {children}
-
-      <footer>
-      </footer>
     </>
   );
 }

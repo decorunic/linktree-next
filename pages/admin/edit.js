@@ -134,12 +134,15 @@ export default function Edit(props) {
   async function updateHandler(e) {
     e.preventDefault();
 
+    let url; 
+    (process.env.NODE_ENV === 'production') ? url = 'https://decorunic.id/': url = 'http://localhost:3000/';
+
     // return console.log(fields);
     setStatus('loading');
 
     const { token } = props;
 
-    const update = await fetch('https://decorunic.id/linktree/api/links/update?id=' + link.id, {
+    const update = await fetch(`${url}linktree/api/links/update?id=${link.id}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',

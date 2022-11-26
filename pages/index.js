@@ -6,10 +6,13 @@ import Layout from '../components/Layout';
 import { AppContext } from '../context/app-context';
 
 export async function getServerSideProps() {
-  const id = 1;
-  const profileReq = await fetch('https://decorunic.id/linktree/api/profile/detail?id=' + id);
+  let url; 
+  (process.env.NODE_ENV === 'production') ? url = 'https://decorunic.id/': url = 'http://localhost:3000/';
 
-  const linkReq = await fetch('https://decorunic.id/linktree/api/links');
+  const id = 1;
+  const profileReq = await fetch(`${url}linktree/api/profile/detail?id=${id}`);
+
+  const linkReq = await fetch(`${url}linktree/api/links`);
 
   const profiles = await profileReq.json();
   const links = await linkReq.json();
