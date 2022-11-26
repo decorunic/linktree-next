@@ -29,9 +29,9 @@ export default function Layout(props) {
         <meta property="og:description" content={desc} />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://decorunic.id/" />
-        <meta property="og:image" content="/img/android-icon-192x192.png" />
+        <meta property="og:image" content="/linktree/img/android-icon-192x192.png" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:image" content="/img/android-icon-192x192.png" />
+        <meta name="twitter:image" content="/linktree/img/android-icon-192x192.png" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
       </Head>

@@ -238,12 +238,12 @@ export default function Edit(props) {
                 onChange={fieldHandler.bind(this)}
                 className="border border-gray-300 p-2 rounded mb-4"
                 required
+                defaultValue={link.type}
               >
                 {typeOptions.map((option, index) => (
                   <option
                     key={index}
                     value={option.value}
-                    selected={option.value === link.type}
                   >
                     {option.label}
                   </option>
