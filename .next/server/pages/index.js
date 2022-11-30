@@ -310,8 +310,8 @@ _components_Layout__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies_
 
 async function getServerSideProps() {
     const id = 1;
-    const profileReq = await fetch(`http://localhost:3000/linktree/api/profile/detail?id=${id}`);
-    const linkReq = await fetch(`http://localhost:3000/linktree/api/links`);
+    const profileReq = await fetch(`https://decorunic.id/linktree/api/profile/detail?id=${id}`);
+    const linkReq = await fetch(`https://decorunic.id/linktree/api/links`);
     const profiles = await profileReq.json();
     const links = await linkReq.json();
     return {
