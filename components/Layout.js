@@ -34,7 +34,6 @@ export default function Layout(props) {
         <meta name="twitter:image" content="/linktree/img/android-icon-192x192.png" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
-        <script defer src="https://unpkg.com/@tinybirdco/flock.js" data-host="https://api.us-east.tinybird.co" data-token="p.eyJ1IjogImQ3NTRhYTQ1LTkwODUtNDNkNC04NTY5LTJjMDg2ODI5ZDcxNSIsICJpZCI6ICI0YjM4ZGU2ZS01ZmM4LTQ1NjYtODhmZi1mNDRhODc2YjVlYTYifQ.D1Mg6lGDmGohxVtkT46mkpfI6leaOFhAheRYmz9cTUo"></script>
       </Head>
 
       {router.pathname !== '/' && <Navbar back={back} />}
