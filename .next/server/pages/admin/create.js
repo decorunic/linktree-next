@@ -167,7 +167,7 @@ function Create(props) {
         e.preventDefault();
         setStatus("loading");
         const { token  } = props;
-        const create = await fetch(`http://localhost:3000/linktree/api/links/create`, {
+        const create = await fetch(`https://decorunic.id/linktree/api/links/create`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

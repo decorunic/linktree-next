@@ -276,7 +276,7 @@ _components_Layout__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies_
 
 async function getServerSideProps(context) {
     const { token  } = await (0,_middlewares_authorizationPage__WEBPACK_IMPORTED_MODULE_4__/* .authorizationPage */ .zD)(context);
-    const linkReq = await fetch(`http://localhost:3000/linktree/api/links`);
+    const linkReq = await fetch(`https://decorunic.id/linktree/api/links`);
     const links = await linkReq.json();
     return {
         props: {
@@ -307,7 +307,7 @@ function Admin(props) {
                 return link.id !== id && link;
             });
             setLinks(linksFiltered);
-            const deleteReq = await fetch(`http://localhost:3000/linktree/api/links/delete?id=${id}`, {
+            const deleteReq = await fetch(`https://decorunic.id/linktree/api/links/delete?id=${id}`, {
                 method: "DELETE",
                 headers: {
                     "Content-Type": "application/json",
