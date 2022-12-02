@@ -1,21 +1,12 @@
 {
   "/_app": "pages/_app.js",
-  "/api/auth/login": "pages/api/auth/login.js",
-  "/api/links/create": "pages/api/links/create.js",
-  "/api/links/delete": "pages/api/links/delete.js",
-  "/api/links/detail": "pages/api/links/detail.js",
-  "/api/links": "pages/api/links.js",
-  "/api/links/update": "pages/api/links/update.js",
-  "/api/profile/detail": "pages/api/profile/detail.js",
-  "/api/profile/update": "pages/api/profile/update.js",
-  "/admin/analytics": "pages/admin/analytics.js",
-  "/admin/edit": "pages/admin/edit.js",
-  "/admin/appearance": "pages/admin/appearance.js",
-  "/admin/create": "pages/admin/create.js",
   "/_error": "pages/_error.js",
-  "/": "pages/index.js",
-  "/auth/login": "pages/auth/login.js",
-  "/admin": "pages/admin.js",
   "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/admin": "pages/admin.js",
+  "/admin/create": "pages/admin/create.js",
+  "/api/links": "pages/api/links.js",
+  "/admin/edit": "pages/admin/edit.js",
+  "/api/links/detail": "pages/api/links/detail.js",
+  "/": "pages/index.js",
+  "/api/profile/detail": "pages/api/profile/detail.js"
 }
