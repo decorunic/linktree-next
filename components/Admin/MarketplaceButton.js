@@ -16,7 +16,7 @@ export default function MarketplaceButton({ marketplaceLinks, deleteHandler, edi
                 <h3 className="font-bold text-lg">{item.name}</h3>
                 <div className="overflow-hidden overflow-ellipsis whitespace-nowrap w-48 md:w-56 lg:w-80">
                   <a 
-                    href={`//${item.url}`}
+                    href={item.url.includes('http://') || item.url.includes('https://') ? item.url : '//' + item.url} 
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-sm cursor-pointer hover:text-secondary active:text-secondary/60"

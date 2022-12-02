@@ -13,7 +13,7 @@ export default function SocialMediaButton({ socialLinks, deleteHandler, editHand
               className="flex items-center justify-between gap-2 w-full sm:w-[calc(50%-8px)] md:w-[calc(100%/3-12px)] lg:w-[calc(100%/4-12px)] text-lg px-5 py-3 border border-primary/40 rounded-full bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out"
             >
               <a 
-                href={`//${item.url}`}
+                href={item.url.includes('http://') || item.url.includes('https://') ? item.url : '//' + item.url} 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="cursor-pointer hover:text-secondary active:text-secondary/60"

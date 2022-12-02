@@ -77,7 +77,7 @@ function GeneralButton() {
     return /*#__PURE__*/ jsx_runtime_.jsx("div", {
         className: "flex flex-wrap justify-center pt-3 gap-5 md:pt-0 md:gap-y-5 md:gap-x-10 lg:gap-x-14",
         children: context.generalLinks.map((item, index)=>/*#__PURE__*/ jsx_runtime_.jsx("a", {
-                href: `//${item.url}`,
+                href: item.url.includes("http://") || item.url.includes("https://") ? item.url : "//" + item.url,
                 target: item.new_tab ? "_blank" : "_self",
                 rel: "noopener noreferrer",
                 className: "w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30",
@@ -101,7 +101,7 @@ function MarketplaceButton() {
             /*#__PURE__*/ jsx_runtime_.jsx("div", {
                 className: "flex flex-wrap justify-center gap-5 md:gap-y-5 md:gap-x-10 lg:gap-x-14",
                 children: context.marketplaceLinks.map((item, index)=>/*#__PURE__*/ jsx_runtime_.jsx("a", {
-                        href: `//${item.url}`,
+                        href: item.url.includes("http://") || item.url.includes("https://") ? item.url : "//" + item.url,
                         target: item.new_tab ? "_blank" : "_self",
                         rel: "noopener noreferrer",
                         className: "w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30",
@@ -156,7 +156,7 @@ function SocialMediaButton() {
     return /*#__PURE__*/ jsx_runtime_.jsx("div", {
         className: "flex flex-wrap mt-5 gap-2 md:gap-3",
         children: context.socialLinks.map((item, index)=>/*#__PURE__*/ jsx_runtime_.jsx("a", {
-                href: `//${item.url}`,
+                href: item.url.includes("http://") || item.url.includes("https://") ? item.url : "//" + item.url,
                 target: item.new_tab ? "_blank" : "_self",
                 rel: "noopener noreferrer",
                 className: "text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50",
@@ -310,8 +310,8 @@ _components_Layout__WEBPACK_IMPORTED_MODULE_5__ = (__webpack_async_dependencies_
 
 async function getServerSideProps() {
     const id = 1;
-    const profileReq = await fetch(`https://decorunic.id/linktree/api/profile/detail?id=${id}`);
-    const linkReq = await fetch(`https://decorunic.id/linktree/api/links`);
+    const profileReq = await fetch(`http://localhost:3000/linktree/api/profile/detail?id=${id}`);
+    const linkReq = await fetch(`http://localhost:3000/linktree/api/links`);
     const profiles = await profileReq.json();
     const links = await linkReq.json();
     return {

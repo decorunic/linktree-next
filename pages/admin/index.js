@@ -5,11 +5,12 @@ import { authorizationPage } from '../../middlewares/authorizationPage';
 import Swal from 'sweetalert2';
 import SocialMediaButton from '../../components/Admin/SocialMediaButton';
 import GeneralButton from '../../components/Admin/GeneralButton';
+import MarketplaceButton from '../../components/Admin/MarketplaceButton';
 
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
 
-  const linkReq = await fetch(`https://decorunic.id/linktree/api/links`);
+  const linkReq = await fetch(`http://localhost:3000/linktree/api/links`);
   
   const links = await linkReq.json();
 
@@ -53,7 +54,7 @@ export default function Admin(props) {
 
       setLinks(linksFiltered);
 
-      const deleteReq = await fetch(`https://decorunic.id/linktree/api/links/delete?id=${id}`, {
+      const deleteReq = await fetch(`http://localhost:3000/linktree/api/links/delete?id=${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -98,7 +99,7 @@ export default function Admin(props) {
     <Layout 
       title="Linktree &#8211; Admin" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
-      back="/"
+      back="/index"
     >
       <div className="container justify-center items-center mt-20 mb-10 lg:mt-24">
         <div className="flex flex-wrap items-center justify-center px-4">
@@ -127,7 +128,12 @@ export default function Admin(props) {
             copyToClipboardHandler={copyToClipboardHandler}
           />
 
-          
+          <MarketplaceButton
+            marketplaceLinks={marketplaceLinks}
+            deleteHandler={deleteHandler}
+            editHandler={editHandler}
+            copyToClipboardHandler={copyToClipboardHandler}
+          />
         </div>
       </div>
     </Layout>

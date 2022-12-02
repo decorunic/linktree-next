@@ -11,7 +11,7 @@ export default function SocialMediaButton() {
         context.socialLinks.map((item, index) => (
           <a
             key={index} 
-            href={`//${item.url}`}
+            href={item.url.includes('http://') || item.url.includes('https://') ? item.url : '//' + item.url} 
             target={item.new_tab ? '_blank' : '_self'}
             rel="noopener noreferrer"
             className="text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50">
