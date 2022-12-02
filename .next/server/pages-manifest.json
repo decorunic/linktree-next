@@ -1,21 +1,12 @@
 {
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
-  "/api/auth/login": "pages/api/auth/login.js",
-  "/api/links/create": "pages/api/links/create.js",
-  "/api/links/delete": "pages/api/links/delete.js",
-  "/api/links/detail": "pages/api/links/detail.js",
-  "/api/links": "pages/api/links.js",
-  "/api/links/update": "pages/api/links/update.js",
-  "/api/profile/detail": "pages/api/profile/detail.js",
-  "/api/profile/update": "pages/api/profile/update.js",
-  "/admin/appearance": "pages/admin/appearance.js",
-  "/admin/analytics": "pages/admin/analytics.js",
-  "/admin": "pages/admin.js",
   "/_document": "pages/_document.js",
-  "/auth/login": "pages/auth/login.js",
-  "/admin/create": "pages/admin/create.js",
-  "/admin/edit": "pages/admin/edit.js",
   "/": "pages/index.js",
-  "/404": "pages/404.html"
+  "/admin": "pages/admin.js",
+  "/api/links": "pages/api/links.js",
+  "/admin/analytics": "pages/admin/analytics.js",
+  "/api/profile/detail": "pages/api/profile/detail.js",
+  "/admin/appearance": "pages/admin/appearance.js",
+  "/api/profile/update": "pages/api/profile/update.js"
 }

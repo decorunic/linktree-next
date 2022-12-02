@@ -9,7 +9,7 @@ export async function getServerSideProps(context) {
 
   const id = 1;
 
-  const profileReq = await fetch(`https://decorunic.id/linktree/api/profile/detail?id=${id}`, {
+  const profileReq = await fetch(`http://localhost:3000/linktree/api/profile/detail?id=${id}`, {
     headers: {
       'Authorization': 'Bearer ' + token
     }
@@ -42,7 +42,7 @@ export default function Appearance(props) {
 
     const { token } = props;
 
-    const update = await fetch(`https://decorunic.id/linktree/api/profile/update?id=${profile.id}`, {
+    const update = await fetch(`http://localhost:3000/linktree/api/profile/update?id=${profile.id}`, {
       method: 'PUT',
       headers: {
         'Authorization': 'Bearer ' + token,
@@ -90,9 +90,9 @@ export default function Appearance(props) {
 
   return (
     <Layout 
-      title="Linktree &#8211; Appearance" 
+      title="Appearance &lsaquo; Decorunic Linktree" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
-      back="/"
+      back="/index"
     >
       <div className="container justify-center items-center mt-20 mb-10 lg:mt-24">
         <div className="flex flex-wrap items-center justify-center px-4">

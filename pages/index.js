@@ -7,9 +7,9 @@ import { AppContext } from '../context/app-context';
 
 export async function getServerSideProps() {
   const id = 1;
-  const profileReq = await fetch(`https://decorunic.id/linktree/api/profile/detail?id=${id}`);
+  const profileReq = await fetch(`http://localhost:3000/linktree/api/profile/detail?id=${id}`);
 
-  const linkReq = await fetch(`https://decorunic.id/linktree/api/links`);
+  const linkReq = await fetch(`http://localhost:3000/linktree/api/links`);
 
   const profiles = await profileReq.json();
   const links = await linkReq.json();
@@ -38,7 +38,7 @@ export default function Home(props) {
 
   return (
     <Layout 
-      title="Linktree &#8211; Decorunic Furniture Hemat Ruang Minimalis Space Saving" 
+      title="Decorunic Linktree &#8211; Furniture Hemat Ruang Minimalis Space Saving" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
     >
       <AppContext.Provider value={appContextValue}>

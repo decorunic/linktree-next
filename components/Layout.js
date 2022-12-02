@@ -8,11 +8,11 @@ export default function Layout(props) {
 
   return (
     <>
-      <Head >
+      <Head>
         <title>
           {title}
         </title>
-        <meta name="keywords" content="Linktree Decorunic, Kumpulan Linktree, Shortlink, Pohon Link" />
+        <meta name="keywords" content="Decorunic Linktree,  Kumpulan Linktree, Shortlink, Pohon Link" />
         <meta name="description" content={desc} />
         <meta name="publisher" content="Decorunic Author" />
         <meta name="author" content="Decorunic Author" />

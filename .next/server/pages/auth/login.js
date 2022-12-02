@@ -1,175 +1,102 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 344;
-exports.ids = [344];
+exports.id = "pages/auth/login";
+exports.ids = ["pages/auth/login"];
 exports.modules = {
 
-/***/ 4699:
-/***/ ((module, __webpack_exports__, __webpack_require__) => {
+/***/ "./middlewares/authorizationPage.js":
+/*!******************************************!*\
+  !*** ./middlewares/authorizationPage.js ***!
+  \******************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Login),
-/* harmony export */   "getServerSideProps": () => (/* binding */ getServerSideProps)
-/* harmony export */ });
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(997);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(9915);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(6689);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(1853);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _middlewares_authorizationPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(7406);
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(271);
-/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);
-var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([js_cookie__WEBPACK_IMPORTED_MODULE_1__]);
-js_cookie__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
-
-
-
-
-
-
-async function getServerSideProps(context) {
-    await (0,_middlewares_authorizationPage__WEBPACK_IMPORTED_MODULE_4__/* .unauthorizedPage */ .wI)(context);
-    return {
-        props: {}
-    };
-}
-function Login() {
-    const { 0: fields , 1: setFields  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)({
-        email: "",
-        password: ""
-    });
-    const { 0: status , 1: setStatus  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)({
-        message: ""
-    });
-    async function loginHandler(e) {
-        e.preventDefault();
-        const loginReq = await fetch(`https://decorunic.id/linktree/api/auth/login`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(fields)
-        });
-        if (!loginReq.ok) {
-            sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({
-                title: "Error",
-                text: "Email or password is incorrect",
-                icon: "error",
-                confirmButtonText: "Ok"
-            });
-            return;
-        }
-        const loginRes = await loginReq.json();
-        setStatus({
-            message: loginRes.message
-        });
-        js_cookie__WEBPACK_IMPORTED_MODULE_1__["default"].set("token", loginRes.token);
-        next_router__WEBPACK_IMPORTED_MODULE_3___default().push("/admin");
-    }
-    function fieldHandler(e) {
-        const name = e.target.getAttribute("name");
-        setFields({
-            ...fields,
-            [name]: e.target.value
-        });
-    }
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-        className: "container flex flex-wrap justify-center h-screen items-center",
-        children: /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("form", {
-            onSubmit: loginHandler.bind(this),
-            className: "w-full max-w-sm",
-            children: [
-                /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("h1", {
-                    className: "text-4xl font-bold mb-10 text-center",
-                    children: "Login"
-                }),
-                /*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-                    className: "flex flex-col",
-                    children: [
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
-                            htmlFor: "email",
-                            className: "mb-2",
-                            children: "Email"
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
-                            type: "email",
-                            name: "email",
-                            id: "email",
-                            className: "border border-gray-300 p-2 rounded mb-4",
-                            onChange: fieldHandler.bind(this),
-                            required: true
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("label", {
-                            htmlFor: "password",
-                            className: "mb-2",
-                            children: "Password"
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("input", {
-                            type: "password",
-                            name: "password",
-                            id: "password",
-                            className: "border border-gray-300 p-2 rounded mb-4",
-                            onChange: fieldHandler.bind(this),
-                            required: true
-                        }),
-                        /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("button", {
-                            type: "submit",
-                            className: "bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out",
-                            children: "Login"
-                        })
-                    ]
-                })
-            ]
-        })
-    });
-}
-
-__webpack_async_result__();
-} catch(e) { __webpack_async_result__(e); } });
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"authorizationPage\": () => (/* binding */ authorizationPage),\n/* harmony export */   \"logout\": () => (/* binding */ logout),\n/* harmony export */   \"unauthorizedPage\": () => (/* binding */ unauthorizedPage)\n/* harmony export */ });\n/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! next-cookies */ \"next-cookies\");\n/* harmony import */ var next_cookies__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(next_cookies__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction unauthorizedPage(context) {\n    return new Promise((resolve)=>{\n        const allCookies = next_cookies__WEBPACK_IMPORTED_MODULE_0___default()(context);\n        if (allCookies.token) {\n            return context.res.writeHead(302, {\n                Location: \"/linktree/admin\"\n            }).end();\n        }\n        return resolve(\"unauthorized\");\n    });\n}\nfunction authorizationPage(context) {\n    return new Promise((resolve)=>{\n        const allCookies = next_cookies__WEBPACK_IMPORTED_MODULE_0___default()(context);\n        if (!allCookies.token) {\n            return context.res.writeHead(302, {\n                Location: \"/linktree/login\"\n            }).end();\n        }\n        return resolve({\n            token: allCookies.token\n        });\n    });\n}\nfunction logout(context) {\n    return new Promise((resolve)=>{\n        context.res.writeHead(302, {\n            Location: \"/linktree/login\",\n            \"Set-Cookie\": \"token=; path=/linktree; expires=Thu, 01 Jan 1970 00:00:01 GMT;\"\n        }).end();\n    });\n}\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9taWRkbGV3YXJlcy9hdXRob3JpemF0aW9uUGFnZS5qcy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7OztBQUFtQztBQUU1QixTQUFTQyxnQkFBZ0IsQ0FBQ0MsT0FBTyxFQUFFO0lBQ3hDLE9BQU8sSUFBSUMsT0FBTyxDQUFDQyxDQUFBQSxPQUFPLEdBQUk7UUFDNUIsTUFBTUMsVUFBVSxHQUFHTCxtREFBTyxDQUFDRSxPQUFPLENBQUM7UUFFbkMsSUFBSUcsVUFBVSxDQUFDQyxLQUFLLEVBQUU7WUFDcEIsT0FBT0osT0FBTyxDQUFDSyxHQUFHLENBQUNDLFNBQVMsQ0FBQyxHQUFHLEVBQzlCO2dCQUFFQyxRQUFRLEVBQUUsaUJBQWlCO2FBQzlCLENBQUMsQ0FBQ0MsR0FBRyxFQUFFLENBQUM7UUFDWCxDQUFDO1FBRUQsT0FBT04sT0FBTyxDQUFDLGNBQWMsQ0FBQyxDQUFDO0lBQ2pDLENBQUMsQ0FBQztBQUNKLENBQUM7QUFFTSxTQUFTTyxpQkFBaUIsQ0FBQ1QsT0FBTyxFQUFFO0lBQ3pDLE9BQU8sSUFBSUMsT0FBTyxDQUFDQyxDQUFBQSxPQUFPLEdBQUk7UUFDNUIsTUFBTUMsVUFBVSxHQUFHTCxtREFBTyxDQUFDRSxPQUFPLENBQUM7UUFFbkMsSUFBRyxDQUFDRyxVQUFVLENBQUNDLEtBQUssRUFBRTtZQUNwQixPQUFPSixPQUFPLENBQUNLLEdBQUcsQ0FBQ0MsU0FBUyxDQUFDLEdBQUcsRUFBRTtnQkFDaENDLFFBQVEsRUFBRSxpQkFBaUI7YUFDNUIsQ0FBQyxDQUFDQyxHQUFHLEVBQUUsQ0FBQztRQUNYLENBQUM7UUFFRCxPQUFPTixPQUFPLENBQUM7WUFDYkUsS0FBSyxFQUFFRCxVQUFVLENBQUNDLEtBQUs7U0FDeEIsQ0FBQyxDQUFDO0lBQ0wsQ0FBQyxDQUFDO0FBQ0osQ0FBQztBQUVNLFNBQVNNLE1BQU0sQ0FBQ1YsT0FBTyxFQUFFO0lBQzlCLE9BQU8sSUFBSUMsT0FBTyxDQUFDQyxDQUFBQSxPQUFPLEdBQUk7UUFDNUJGLE9BQU8sQ0FBQ0ssR0FBRyxDQUFDQyxTQUFTLENBQUMsR0FBRyxFQUFFO1lBQ3pCQyxRQUFRLEVBQUUsaUJBQWlCO1lBQzNCLFlBQVksRUFBRSxnRUFBZ0U7U0FDL0UsQ0FBQyxDQUFDQyxHQUFHLEVBQUUsQ0FBQztJQUNYLENBQUMsQ0FBQztBQUNKLENBQUMiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly9saW5rdHJlZS1uZXh0Ly4vbWlkZGxld2FyZXMvYXV0aG9yaXphdGlvblBhZ2UuanM/ZGE4MSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgY29va2llcyBmcm9tICduZXh0LWNvb2tpZXMnO1xyXG5cclxuZXhwb3J0IGZ1bmN0aW9uIHVuYXV0aG9yaXplZFBhZ2UoY29udGV4dCkge1xyXG4gIHJldHVybiBuZXcgUHJvbWlzZShyZXNvbHZlID0+IHtcclxuICAgIGNvbnN0IGFsbENvb2tpZXMgPSBjb29raWVzKGNvbnRleHQpO1xyXG4gIFxyXG4gICAgaWYgKGFsbENvb2tpZXMudG9rZW4pIHtcclxuICAgICAgcmV0dXJuIGNvbnRleHQucmVzLndyaXRlSGVhZCgzMDIsIFxyXG4gICAgICAgIHsgTG9jYXRpb246ICcvbGlua3RyZWUvYWRtaW4nIFxyXG4gICAgICB9KS5lbmQoKTtcclxuICAgIH1cclxuXHJcbiAgICByZXR1cm4gcmVzb2x2ZSgndW5hdXRob3JpemVkJyk7XHJcbiAgfSlcclxufVxyXG5cclxuZXhwb3J0IGZ1bmN0aW9uIGF1dGhvcml6YXRpb25QYWdlKGNvbnRleHQpIHtcclxuICByZXR1cm4gbmV3IFByb21pc2UocmVzb2x2ZSA9PiB7XHJcbiAgICBjb25zdCBhbGxDb29raWVzID0gY29va2llcyhjb250ZXh0KTtcclxuXHJcbiAgICBpZighYWxsQ29va2llcy50b2tlbikge1xyXG4gICAgICByZXR1cm4gY29udGV4dC5yZXMud3JpdGVIZWFkKDMwMiwge1xyXG4gICAgICAgIExvY2F0aW9uOiAnL2xpbmt0cmVlL2xvZ2luJ1xyXG4gICAgICB9KS5lbmQoKTtcclxuICAgIH1cclxuXHJcbiAgICByZXR1cm4gcmVzb2x2ZSh7XHJcbiAgICAgIHRva2VuOiBhbGxDb29raWVzLnRva2VuXHJcbiAgICB9KTtcclxuICB9KVxyXG59XHJcblxyXG5leHBvcnQgZnVuY3Rpb24gbG9nb3V0KGNvbnRleHQpIHtcclxuICByZXR1cm4gbmV3IFByb21pc2UocmVzb2x2ZSA9PiB7XHJcbiAgICBjb250ZXh0LnJlcy53cml0ZUhlYWQoMzAyLCB7XHJcbiAgICAgIExvY2F0aW9uOiAnL2xpbmt0cmVlL2xvZ2luJyxcclxuICAgICAgJ1NldC1Db29raWUnOiAndG9rZW49OyBwYXRoPS9saW5rdHJlZTsgZXhwaXJlcz1UaHUsIDAxIEphbiAxOTcwIDAwOjAwOjAxIEdNVDsnXHJcbiAgICB9KS5lbmQoKTtcclxuICB9KVxyXG59Il0sIm5hbWVzIjpbImNvb2tpZXMiLCJ1bmF1dGhvcml6ZWRQYWdlIiwiY29udGV4dCIsIlByb21pc2UiLCJyZXNvbHZlIiwiYWxsQ29va2llcyIsInRva2VuIiwicmVzIiwid3JpdGVIZWFkIiwiTG9jYXRpb24iLCJlbmQiLCJhdXRob3JpemF0aW9uUGFnZSIsImxvZ291dCJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///./middlewares/authorizationPage.js\n");
 
 /***/ }),
 
-/***/ 7486:
+/***/ "./pages/auth/login.js":
+/*!*****************************!*\
+  !*** ./pages/auth/login.js ***!
+  \*****************************/
+/***/ ((module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {\n__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (/* binding */ Login),\n/* harmony export */   \"getServerSideProps\": () => (/* binding */ getServerSideProps)\n/* harmony export */ });\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react/jsx-dev-runtime */ \"react/jsx-dev-runtime\");\n/* harmony import */ var react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-cookie */ \"js-cookie\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react */ \"react\");\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! next/router */ \"next/router\");\n/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var _middlewares_authorizationPage__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../../middlewares/authorizationPage */ \"./middlewares/authorizationPage.js\");\n/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! sweetalert2 */ \"sweetalert2\");\n/* harmony import */ var sweetalert2__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(sweetalert2__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/head */ \"next/head\");\n/* harmony import */ var next_head__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_head__WEBPACK_IMPORTED_MODULE_6__);\nvar __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([js_cookie__WEBPACK_IMPORTED_MODULE_1__]);\njs_cookie__WEBPACK_IMPORTED_MODULE_1__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];\n\n\n\n\n\n\n\nasync function getServerSideProps(context) {\n    await (0,_middlewares_authorizationPage__WEBPACK_IMPORTED_MODULE_4__.unauthorizedPage)(context);\n    return {\n        props: {}\n    };\n}\nfunction Login() {\n    const { 0: fields , 1: setFields  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)({\n        email: \"\",\n        password: \"\"\n    });\n    const { 0: status , 1: setStatus  } = (0,react__WEBPACK_IMPORTED_MODULE_2__.useState)({\n        message: \"\"\n    });\n    async function loginHandler(e) {\n        e.preventDefault();\n        const loginReq = await fetch(`http://localhost:3000/linktree/api/auth/login`, {\n            method: \"POST\",\n            headers: {\n                \"Content-Type\": \"application/json\"\n            },\n            body: JSON.stringify(fields)\n        });\n        if (!loginReq.ok) {\n            sweetalert2__WEBPACK_IMPORTED_MODULE_5___default().fire({\n                title: \"Error\",\n                text: \"Email or password is incorrect\",\n                icon: \"error\",\n                confirmButtonText: \"Ok\"\n            });\n            return;\n        }\n        const loginRes = await loginReq.json();\n        setStatus({\n            message: loginRes.message\n        });\n        js_cookie__WEBPACK_IMPORTED_MODULE_1__[\"default\"].set(\"token\", loginRes.token);\n        next_router__WEBPACK_IMPORTED_MODULE_3___default().push(\"/admin\");\n    }\n    function fieldHandler(e) {\n        const name = e.target.getAttribute(\"name\");\n        setFields({\n            ...fields,\n            [name]: e.target.value\n        });\n    }\n    return /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.Fragment, {\n        children: [\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)((next_head__WEBPACK_IMPORTED_MODULE_6___default()), {\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"title\", {\n                    children: \"Login ‹ Decorunic Linktree\"\n                }, void 0, false, {\n                    fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                    lineNumber: 68,\n                    columnNumber: 9\n                }, this)\n            }, void 0, false, {\n                fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                lineNumber: 67,\n                columnNumber: 7\n            }, this),\n            /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                className: \"container flex flex-wrap justify-center h-screen items-center\",\n                children: /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"form\", {\n                    onSubmit: loginHandler.bind(this),\n                    className: \"w-full max-w-sm\",\n                    children: [\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"h1\", {\n                            className: \"text-4xl font-bold mb-10 text-center\",\n                            children: \"Login\"\n                        }, void 0, false, {\n                            fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                            lineNumber: 72,\n                            columnNumber: 11\n                        }, this),\n                        /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"div\", {\n                            className: \"flex flex-col\",\n                            children: [\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n                                    htmlFor: \"email\",\n                                    className: \"mb-2\",\n                                    children: \"Email\"\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                                    lineNumber: 74,\n                                    columnNumber: 13\n                                }, this),\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                                    type: \"email\",\n                                    name: \"email\",\n                                    id: \"email\",\n                                    className: \"border border-gray-300 p-2 rounded mb-4\",\n                                    onChange: fieldHandler.bind(this),\n                                    required: true\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                                    lineNumber: 75,\n                                    columnNumber: 13\n                                }, this),\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"label\", {\n                                    htmlFor: \"password\",\n                                    className: \"mb-2\",\n                                    children: \"Password\"\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                                    lineNumber: 84,\n                                    columnNumber: 13\n                                }, this),\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"input\", {\n                                    type: \"password\",\n                                    name: \"password\",\n                                    id: \"password\",\n                                    className: \"border border-gray-300 p-2 rounded mb-4\",\n                                    onChange: fieldHandler.bind(this),\n                                    required: true\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                                    lineNumber: 85,\n                                    columnNumber: 13\n                                }, this),\n                                /*#__PURE__*/ (0,react_jsx_dev_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxDEV)(\"button\", {\n                                    type: \"submit\",\n                                    className: \"bg-dark text-white p-2 rounded hover:bg-dark/50 transition-all duration-200 ease-in-out\",\n                                    children: \"Login\"\n                                }, void 0, false, {\n                                    fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                                    lineNumber: 93,\n                                    columnNumber: 13\n                                }, this)\n                            ]\n                        }, void 0, true, {\n                            fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                            lineNumber: 73,\n                            columnNumber: 11\n                        }, this)\n                    ]\n                }, void 0, true, {\n                    fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                    lineNumber: 71,\n                    columnNumber: 9\n                }, this)\n            }, void 0, false, {\n                fileName: \"D:\\\\Coding Workspace\\\\decorunic\\\\linktree-next\\\\pages\\\\auth\\\\login.js\",\n                lineNumber: 70,\n                columnNumber: 7\n            }, this)\n        ]\n    }, void 0, true);\n}\n\n__webpack_async_result__();\n} catch(e) { __webpack_async_result__(e); } });//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9wYWdlcy9hdXRoL2xvZ2luLmpzLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUE7QUFBZ0M7QUFDUTtBQUNQO0FBQ3NDO0FBQ3hDO0FBQ0Y7QUFFdEIsZUFBZU8sa0JBQWtCLENBQUNDLE9BQU8sRUFBRTtJQUNoRCxNQUFNSixnRkFBZ0IsQ0FBQ0ksT0FBTyxDQUFDLENBQUM7SUFFaEMsT0FBTztRQUFFQyxLQUFLLEVBQUUsRUFBRTtLQUFFLENBQUM7QUFDdkIsQ0FBQztBQUVjLFNBQVNDLEtBQUssR0FBRztJQUM5QixNQUFNLEtBQUNDLE1BQU0sTUFBRUMsU0FBUyxNQUFJViwrQ0FBUSxDQUFDO1FBQ25DVyxLQUFLLEVBQUUsRUFBRTtRQUNUQyxRQUFRLEVBQUUsRUFBRTtLQUNiLENBQUM7SUFFRixNQUFNLEtBQUNDLE1BQU0sTUFBRUMsU0FBUyxNQUFJZCwrQ0FBUSxDQUFDO1FBQ25DZSxPQUFPLEVBQUUsRUFBRTtLQUNaLENBQUM7SUFHRixlQUFlQyxZQUFZLENBQUNDLENBQUMsRUFBRTtRQUM3QkEsQ0FBQyxDQUFDQyxjQUFjLEVBQUUsQ0FBQztRQUVuQixNQUFNQyxRQUFRLEdBQUksTUFBTUMsS0FBSyxDQUFDLENBQUMsNkNBQTZDLENBQUMsRUFBRTtZQUM3RUMsTUFBTSxFQUFFLE1BQU07WUFDZEMsT0FBTyxFQUFFO2dCQUNQLGNBQWMsRUFBRSxrQkFBa0I7YUFDakM7WUFDREMsSUFBSSxFQUFFQyxJQUFJLENBQUNDLFNBQVMsQ0FBQ2hCLE1BQU0sQ0FBQztTQUM3QixDQUFDO1FBRUYsSUFBRyxDQUFDVSxRQUFRLENBQUNPLEVBQUUsRUFBRTtZQUNmdkIsdURBQVMsQ0FBQztnQkFDUnlCLEtBQUssRUFBRSxPQUFPO2dCQUNkQyxJQUFJLEVBQUUsZ0NBQWdDO2dCQUN0Q0MsSUFBSSxFQUFFLE9BQU87Z0JBQ2JDLGlCQUFpQixFQUFFLElBQUk7YUFDeEIsQ0FBQyxDQUFDO1lBQ0gsT0FBTztRQUNULENBQUM7UUFFRCxNQUFNQyxRQUFRLEdBQUcsTUFBTWIsUUFBUSxDQUFDYyxJQUFJLEVBQUU7UUFDdENuQixTQUFTLENBQUM7WUFDUkMsT0FBTyxFQUFFaUIsUUFBUSxDQUFDakIsT0FBTztTQUMxQixDQUFDLENBQUM7UUFFSGpCLHFEQUFXLENBQUMsT0FBTyxFQUFFa0MsUUFBUSxDQUFDRyxLQUFLLENBQUMsQ0FBQztRQUVyQ2xDLHVEQUFXLENBQUMsUUFBUSxDQUFDLENBQUM7SUFDMUIsQ0FBQztJQUVELFNBQVNvQyxZQUFZLENBQUNwQixDQUFDLEVBQUU7UUFDdkIsTUFBTXFCLElBQUksR0FBR3JCLENBQUMsQ0FBQ3NCLE1BQU0sQ0FBQ0MsWUFBWSxDQUFDLE1BQU0sQ0FBQztRQUUxQzlCLFNBQVMsQ0FBQztZQUNSLEdBQUdELE1BQU07WUFDVCxDQUFDNkIsSUFBSSxDQUFDLEVBQUVyQixDQUFDLENBQUNzQixNQUFNLENBQUNFLEtBQUs7U0FDdkIsQ0FBQztJQUNKLENBQUM7SUFFRCxxQkFDRTs7MEJBQ0UsOERBQUNyQyxrREFBSTswQkFDSCw0RUFBQ3dCLE9BQUs7OEJBQUMsNEJBQWlDOzs7Ozt3QkFBUTs7Ozs7b0JBQzNDOzBCQUNQLDhEQUFDYyxLQUFHO2dCQUFDQyxTQUFTLEVBQUMsK0RBQStEOzBCQUM1RSw0RUFBQ0MsTUFBSTtvQkFBQ0MsUUFBUSxFQUFFN0IsWUFBWSxDQUFDOEIsSUFBSSxDQUFDLElBQUksQ0FBQztvQkFBRUgsU0FBUyxFQUFDLGlCQUFpQjs7c0NBQ2xFLDhEQUFDSSxJQUFFOzRCQUFDSixTQUFTLEVBQUMsc0NBQXNDO3NDQUFDLE9BQUs7Ozs7O2dDQUFLO3NDQUMvRCw4REFBQ0QsS0FBRzs0QkFBQ0MsU0FBUyxFQUFDLGVBQWU7OzhDQUM1Qiw4REFBQ0ssT0FBSztvQ0FBQ0MsT0FBTyxFQUFDLE9BQU87b0NBQUNOLFNBQVMsRUFBQyxNQUFNOzhDQUFDLE9BQUs7Ozs7O3dDQUFROzhDQUNyRCw4REFBQ08sT0FBSztvQ0FDSkMsSUFBSSxFQUFDLE9BQU87b0NBQ1piLElBQUksRUFBQyxPQUFPO29DQUNaYyxFQUFFLEVBQUMsT0FBTztvQ0FDVlQsU0FBUyxFQUFDLHlDQUF5QztvQ0FDbkRVLFFBQVEsRUFBRWhCLFlBQVksQ0FBQ1MsSUFBSSxDQUFDLElBQUksQ0FBQztvQ0FDakNRLFFBQVE7Ozs7O3dDQUNSOzhDQUVGLDhEQUFDTixPQUFLO29DQUFDQyxPQUFPLEVBQUMsVUFBVTtvQ0FBQ04sU0FBUyxFQUFDLE1BQU07OENBQUMsVUFBUTs7Ozs7d0NBQVE7OENBQzNELDhEQUFDTyxPQUFLO29DQUNKQyxJQUFJLEVBQUMsVUFBVTtvQ0FDZmIsSUFBSSxFQUFDLFVBQVU7b0NBQ2ZjLEVBQUUsRUFBQyxVQUFVO29DQUNiVCxTQUFTLEVBQUMseUNBQXlDO29DQUNuRFUsUUFBUSxFQUFFaEIsWUFBWSxDQUFDUyxJQUFJLENBQUMsSUFBSSxDQUFDO29DQUNqQ1EsUUFBUTs7Ozs7d0NBQ1I7OENBQ0YsOERBQUNDLFFBQU07b0NBQUNKLElBQUksRUFBQyxRQUFRO29DQUFDUixTQUFTLEVBQUMseUZBQXlGOzhDQUFDLE9BQUs7Ozs7O3dDQUFTOzs7Ozs7Z0NBQ3BJOzs7Ozs7d0JBQ0Q7Ozs7O29CQUNIOztvQkFDTCxDQUNKO0FBQ0gsQ0FBQyIsInNvdXJjZXMiOlsid2VicGFjazovL2xpbmt0cmVlLW5leHQvLi9wYWdlcy9hdXRoL2xvZ2luLmpzPzI3OWEiXSwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IENvb2tpZXMgZnJvbSAnanMtY29va2llJztcclxuaW1wb3J0IFJlYWN0LCB7IHVzZVN0YXRlIH0gZnJvbSAncmVhY3QnO1xyXG5pbXBvcnQgUm91dGVyIGZyb20gJ25leHQvcm91dGVyJztcclxuaW1wb3J0IHsgdW5hdXRob3JpemVkUGFnZSB9IGZyb20gJy4uLy4uL21pZGRsZXdhcmVzL2F1dGhvcml6YXRpb25QYWdlJztcclxuaW1wb3J0IFN3YWwgZnJvbSAnc3dlZXRhbGVydDInO1xyXG5pbXBvcnQgSGVhZCBmcm9tICduZXh0L2hlYWQnO1xyXG5cclxuZXhwb3J0IGFzeW5jIGZ1bmN0aW9uIGdldFNlcnZlclNpZGVQcm9wcyhjb250ZXh0KSB7XHJcbiAgYXdhaXQgdW5hdXRob3JpemVkUGFnZShjb250ZXh0KTtcclxuXHJcbiAgcmV0dXJuIHsgcHJvcHM6IHt9IH07XHJcbn1cclxuXHJcbmV4cG9ydCBkZWZhdWx0IGZ1bmN0aW9uIExvZ2luKCkge1xyXG4gIGNvbnN0IFtmaWVsZHMsIHNldEZpZWxkc10gPSB1c2VTdGF0ZSh7XHJcbiAgICBlbWFpbDogJycsXHJcbiAgICBwYXNzd29yZDogJydcclxuICB9KTtcclxuXHJcbiAgY29uc3QgW3N0YXR1cywgc2V0U3RhdHVzXSA9IHVzZVN0YXRlKHtcclxuICAgIG1lc3NhZ2U6ICcnXHJcbiAgfSk7XHJcblxyXG5cclxuICBhc3luYyBmdW5jdGlvbiBsb2dpbkhhbmRsZXIoZSkge1xyXG4gICAgZS5wcmV2ZW50RGVmYXVsdCgpO1xyXG4gXHJcbiAgICBjb25zdCBsb2dpblJlcSA9ICBhd2FpdCBmZXRjaChgaHR0cDovL2xvY2FsaG9zdDozMDAwL2xpbmt0cmVlL2FwaS9hdXRoL2xvZ2luYCwge1xyXG4gICAgICBtZXRob2Q6ICdQT1NUJyxcclxuICAgICAgaGVhZGVyczoge1xyXG4gICAgICAgICdDb250ZW50LVR5cGUnOiAnYXBwbGljYXRpb24vanNvbidcclxuICAgICAgICB9LFxyXG4gICAgICAgIGJvZHk6IEpTT04uc3RyaW5naWZ5KGZpZWxkcylcclxuICAgICAgfSk7XHJcblxyXG4gICAgICBpZighbG9naW5SZXEub2spIHtcclxuICAgICAgICBTd2FsLmZpcmUoe1xyXG4gICAgICAgICAgdGl0bGU6ICdFcnJvcicsXHJcbiAgICAgICAgICB0ZXh0OiAnRW1haWwgb3IgcGFzc3dvcmQgaXMgaW5jb3JyZWN0JyxcclxuICAgICAgICAgIGljb246ICdlcnJvcicsXHJcbiAgICAgICAgICBjb25maXJtQnV0dG9uVGV4dDogJ09rJ1xyXG4gICAgICAgIH0pO1xyXG4gICAgICAgIHJldHVybjtcclxuICAgICAgfVxyXG5cclxuICAgICAgY29uc3QgbG9naW5SZXMgPSBhd2FpdCBsb2dpblJlcS5qc29uKCk7XHJcbiAgICAgIHNldFN0YXR1cyh7XHJcbiAgICAgICAgbWVzc2FnZTogbG9naW5SZXMubWVzc2FnZVxyXG4gICAgICB9KTtcclxuXHJcbiAgICAgIENvb2tpZXMuc2V0KCd0b2tlbicsIGxvZ2luUmVzLnRva2VuKTtcclxuXHJcbiAgICAgIFJvdXRlci5wdXNoKCcvYWRtaW4nKTtcclxuICB9XHJcblxyXG4gIGZ1bmN0aW9uIGZpZWxkSGFuZGxlcihlKSB7XHJcbiAgICBjb25zdCBuYW1lID0gZS50YXJnZXQuZ2V0QXR0cmlidXRlKCduYW1lJyk7XHJcblxyXG4gICAgc2V0RmllbGRzKHtcclxuICAgICAgLi4uZmllbGRzLFxyXG4gICAgICBbbmFtZV06IGUudGFyZ2V0LnZhbHVlXHJcbiAgICB9KVxyXG4gIH1cclxuXHJcbiAgcmV0dXJuIChcclxuICAgIDw+XHJcbiAgICAgIDxIZWFkPlxyXG4gICAgICAgIDx0aXRsZT5Mb2dpbiAmbHNhcXVvOyBEZWNvcnVuaWMgTGlua3RyZWU8L3RpdGxlPlxyXG4gICAgICA8L0hlYWQ+XHJcbiAgICAgIDxkaXYgY2xhc3NOYW1lPVwiY29udGFpbmVyIGZsZXggZmxleC13cmFwIGp1c3RpZnktY2VudGVyIGgtc2NyZWVuIGl0ZW1zLWNlbnRlclwiPlxyXG4gICAgICAgIDxmb3JtIG9uU3VibWl0PXtsb2dpbkhhbmRsZXIuYmluZCh0aGlzKX0gY2xhc3NOYW1lPVwidy1mdWxsIG1heC13LXNtXCI+XHJcbiAgICAgICAgICA8aDEgY2xhc3NOYW1lPVwidGV4dC00eGwgZm9udC1ib2xkIG1iLTEwIHRleHQtY2VudGVyXCI+TG9naW48L2gxPlxyXG4gICAgICAgICAgPGRpdiBjbGFzc05hbWU9XCJmbGV4IGZsZXgtY29sXCI+XHJcbiAgICAgICAgICAgIDxsYWJlbCBodG1sRm9yPVwiZW1haWxcIiBjbGFzc05hbWU9XCJtYi0yXCI+RW1haWw8L2xhYmVsPlxyXG4gICAgICAgICAgICA8aW5wdXQgXHJcbiAgICAgICAgICAgICAgdHlwZT1cImVtYWlsXCIgXHJcbiAgICAgICAgICAgICAgbmFtZT1cImVtYWlsXCIgXHJcbiAgICAgICAgICAgICAgaWQ9XCJlbWFpbFwiIFxyXG4gICAgICAgICAgICAgIGNsYXNzTmFtZT1cImJvcmRlciBib3JkZXItZ3JheS0zMDAgcC0yIHJvdW5kZWQgbWItNFwiIFxyXG4gICAgICAgICAgICAgIG9uQ2hhbmdlPXtmaWVsZEhhbmRsZXIuYmluZCh0aGlzKX1cclxuICAgICAgICAgICAgICByZXF1aXJlZFxyXG4gICAgICAgICAgICAvPlxyXG4gICAgICAgICAgICBcclxuICAgICAgICAgICAgPGxhYmVsIGh0bWxGb3I9XCJwYXNzd29yZFwiIGNsYXNzTmFtZT1cIm1iLTJcIj5QYXNzd29yZDwvbGFiZWw+XHJcbiAgICAgICAgICAgIDxpbnB1dCBcclxuICAgICAgICAgICAgICB0eXBlPVwicGFzc3dvcmRcIiBcclxuICAgICAgICAgICAgICBuYW1lPVwicGFzc3dvcmRcIiBcclxuICAgICAgICAgICAgICBpZD1cInBhc3N3b3JkXCIgXHJcbiAgICAgICAgICAgICAgY2xhc3NOYW1lPVwiYm9yZGVyIGJvcmRlci1ncmF5LTMwMCBwLTIgcm91bmRlZCBtYi00XCIgXHJcbiAgICAgICAgICAgICAgb25DaGFuZ2U9e2ZpZWxkSGFuZGxlci5iaW5kKHRoaXMpfVxyXG4gICAgICAgICAgICAgIHJlcXVpcmVkXHJcbiAgICAgICAgICAgIC8+XHJcbiAgICAgICAgICAgIDxidXR0b24gdHlwZT1cInN1Ym1pdFwiIGNsYXNzTmFtZT1cImJnLWRhcmsgdGV4dC13aGl0ZSBwLTIgcm91bmRlZCBob3ZlcjpiZy1kYXJrLzUwIHRyYW5zaXRpb24tYWxsIGR1cmF0aW9uLTIwMCBlYXNlLWluLW91dFwiPkxvZ2luPC9idXR0b24+XHJcbiAgICAgICAgICA8L2Rpdj5cclxuICAgICAgICA8L2Zvcm0+XHJcbiAgICAgIDwvZGl2PlxyXG4gICAgPC8+XHJcbiAgKVxyXG59Il0sIm5hbWVzIjpbIkNvb2tpZXMiLCJSZWFjdCIsInVzZVN0YXRlIiwiUm91dGVyIiwidW5hdXRob3JpemVkUGFnZSIsIlN3YWwiLCJIZWFkIiwiZ2V0U2VydmVyU2lkZVByb3BzIiwiY29udGV4dCIsInByb3BzIiwiTG9naW4iLCJmaWVsZHMiLCJzZXRGaWVsZHMiLCJlbWFpbCIsInBhc3N3b3JkIiwic3RhdHVzIiwic2V0U3RhdHVzIiwibWVzc2FnZSIsImxvZ2luSGFuZGxlciIsImUiLCJwcmV2ZW50RGVmYXVsdCIsImxvZ2luUmVxIiwiZmV0Y2giLCJtZXRob2QiLCJoZWFkZXJzIiwiYm9keSIsIkpTT04iLCJzdHJpbmdpZnkiLCJvayIsImZpcmUiLCJ0aXRsZSIsInRleHQiLCJpY29uIiwiY29uZmlybUJ1dHRvblRleHQiLCJsb2dpblJlcyIsImpzb24iLCJzZXQiLCJ0b2tlbiIsInB1c2giLCJmaWVsZEhhbmRsZXIiLCJuYW1lIiwidGFyZ2V0IiwiZ2V0QXR0cmlidXRlIiwidmFsdWUiLCJkaXYiLCJjbGFzc05hbWUiLCJmb3JtIiwib25TdWJtaXQiLCJiaW5kIiwiaDEiLCJsYWJlbCIsImh0bWxGb3IiLCJpbnB1dCIsInR5cGUiLCJpZCIsIm9uQ2hhbmdlIiwicmVxdWlyZWQiLCJidXR0b24iXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./pages/auth/login.js\n");
+
+/***/ }),
+
+/***/ "next-cookies":
+/*!*******************************!*\
+  !*** external "next-cookies" ***!
+  \*******************************/
 /***/ ((module) => {
 
 module.exports = require("next-cookies");
 
 /***/ }),
 
-/***/ 1853:
+/***/ "next/head":
+/*!****************************!*\
+  !*** external "next/head" ***!
+  \****************************/
+/***/ ((module) => {
+
+module.exports = require("next/head");
+
+/***/ }),
+
+/***/ "next/router":
+/*!******************************!*\
+  !*** external "next/router" ***!
+  \******************************/
 /***/ ((module) => {
 
 module.exports = require("next/router");
 
 /***/ }),
 
-/***/ 6689:
+/***/ "react":
+/*!************************!*\
+  !*** external "react" ***!
+  \************************/
 /***/ ((module) => {
 
 module.exports = require("react");
 
 /***/ }),
 
-/***/ 997:
+/***/ "react/jsx-dev-runtime":
+/*!****************************************!*\
+  !*** external "react/jsx-dev-runtime" ***!
+  \****************************************/
 /***/ ((module) => {
 
-module.exports = require("react/jsx-runtime");
+module.exports = require("react/jsx-dev-runtime");
 
 /***/ }),
 
-/***/ 271:
+/***/ "sweetalert2":
+/*!******************************!*\
+  !*** external "sweetalert2" ***!
+  \******************************/
 /***/ ((module) => {
 
 module.exports = require("sweetalert2");
 
 /***/ }),
 
-/***/ 9915:
+/***/ "js-cookie":
+/*!****************************!*\
+  !*** external "js-cookie" ***!
+  \****************************/
 /***/ ((module) => {
 
 module.exports = import("js-cookie");;
@@ -183,7 +110,7 @@ module.exports = import("js-cookie");;
 var __webpack_require__ = require("../../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [406], () => (__webpack_exec__(4699)));
+var __webpack_exports__ = (__webpack_exec__("./pages/auth/login.js"));
 module.exports = __webpack_exports__;
 
 })();

@@ -14,9 +14,9 @@ export async function getServerSideProps(context) {
 export default function Analytics() {
   return (
     <Layout 
-      title="Linktree &#8211; Analytics" 
+      title="Analytics &lsaquo; Decorunic Linktree" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
-      back="/"
+      back="/index"
     >
       <div className="container justify-center items-center mt-20 mb-10 lg:mt-24">
         <div className="flex flex-wrap items-center justify-center px-4">

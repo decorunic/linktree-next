@@ -10,7 +10,7 @@ import MarketplaceButton from '../../components/Admin/MarketplaceButton';
 export async function getServerSideProps(context) {
   const { token } = await authorizationPage(context);
 
-  const linkReq = await fetch(`https://decorunic.id/linktree/api/links`);
+  const linkReq = await fetch(`http://localhost:3000/linktree/api/links`);
   
   const links = await linkReq.json();
 
@@ -54,7 +54,7 @@ export default function Admin(props) {
 
       setLinks(linksFiltered);
 
-      const deleteReq = await fetch(`https://decorunic.id/linktree/api/links/delete?id=${id}`, {
+      const deleteReq = await fetch(`http://localhost:3000/linktree/api/links/delete?id=${id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -97,7 +97,7 @@ export default function Admin(props) {
 
   return (
     <Layout 
-      title="Linktree &#8211; Admin" 
+      title="Admin &lsaquo; Decorunic Linktree" 
       desc="Tautan Marketplace, Sosial Media, Informasi, dan Website Decorunic"
       back="/index"
     >
