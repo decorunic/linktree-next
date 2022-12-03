@@ -34,6 +34,7 @@ export default function Layout(props) {
         <meta name="twitter:image" content="/linktree/img/android-icon-192x192.png" />
         <meta name="twitter:title" content={title} />
         <meta name="twitter:description" content={desc} />
+        <script async defer data-website-id="e2b74b42-54db-4ff9-be04-d8dd26687dfc" src="https://decoruniclinktreeanalytics.up.railway.app/umami.js"></script>
       </Head>
 
       {router.pathname !== '/' && <Navbar back={back} />}
