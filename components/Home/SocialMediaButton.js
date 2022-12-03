@@ -14,7 +14,7 @@ export default function SocialMediaButton() {
             href={item.url.includes('http://') || item.url.includes('https://') ? item.url : '//' + item.url} 
             target={item.new_tab ? '_blank' : '_self'}
             rel="noopener noreferrer"
-            className={`text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50 umami--click--${item.name.toLowerCase().replace(/\s/g, '')}-${item.id}`}>
+            className={`text-2xl p-2 rounded-full md:text-3xl transition-all duration-200 ease-in hover:bg-primary/50 umami--click--${item.name.toLowerCase().replace(/\s/g, '')}-button-${item.id}`}>
             <DynamicFaIcon name={item.icon} />
           </a>
         ))

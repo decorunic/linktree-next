@@ -124,8 +124,8 @@ function Layout(props) {
                     /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("script", {
                         async: true,
                         defer: true,
-                        "data-website-id": "e2b74b42-54db-4ff9-be04-d8dd26687dfc",
-                        src: "https://decoruniclinktreeanalytics.up.railway.app/umami.js"
+                        "data-website-id": "33c0c443-6d61-40eb-b4a5-420f7d423fbf",
+                        src: "https://decoruniclinktree.up.railway.app/umami.js"
                     })
                 ]
             }),
@@ -243,7 +243,8 @@ function Navbar({ isActiveHamburger , logoutHandler  }) {
                 /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("li", {
                     className: "mb-1 grup",
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
-                        href: "/admin/analytics",
+                        // href="/admin/analytics"
+                        href: "https://decoruniclinktree.up.railway.app/websites/33c0c443-6d61-40eb-b4a5-420f7d423fbf/Decorunic%20Linktree",
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                             className: router.pathname === "/admin/analytics" ? "cursor-pointer nav-link rounded-b-none rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:hover:text-primary dark:text-primary nav-link-active" : "cursor-pointer nav-link rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:text-light dark:hover:text-primary",
                             children: "Analytics"

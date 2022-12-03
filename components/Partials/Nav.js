@@ -28,7 +28,8 @@ export default function Navbar({ isActiveHamburger, logoutHandler }) {
         </li>
         <li className="mb-1 grup">
           <Link
-            href="/admin/analytics"
+            // href="/admin/analytics"
+            href="https://decoruniclinktree.up.railway.app/websites/33c0c443-6d61-40eb-b4a5-420f7d423fbf/Decorunic%20Linktree"
           >
             <span className={router.pathname === '/admin/analytics' ? 'cursor-pointer nav-link rounded-b-none rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:hover:text-primary dark:text-primary nav-link-active' : 'cursor-pointer nav-link rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:text-light dark:hover:text-primary'}>
               Analytics
