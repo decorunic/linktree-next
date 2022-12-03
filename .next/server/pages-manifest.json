@@ -1,5 +1,6 @@
 {
   "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
   "/api/auth/login": "pages/api/auth/login.js",
   "/api/links/create": "pages/api/links/create.js",
   "/api/links/delete": "pages/api/links/delete.js",
@@ -9,13 +10,12 @@
   "/api/profile/detail": "pages/api/profile/detail.js",
   "/api/profile/update": "pages/api/profile/update.js",
   "/admin/appearance": "pages/admin/appearance.js",
-  "/admin/edit": "pages/admin/edit.js",
-  "/admin/create": "pages/admin/create.js",
   "/admin/analytics": "pages/admin/analytics.js",
-  "/_error": "pages/_error.js",
   "/admin": "pages/admin.js",
-  "/": "pages/index.js",
+  "/admin/create": "pages/admin/create.js",
+  "/admin/edit": "pages/admin/edit.js",
   "/auth/login": "pages/auth/login.js",
+  "/": "pages/index.js",
   "/_document": "pages/_document.js",
   "/404": "pages/404.html"
 }

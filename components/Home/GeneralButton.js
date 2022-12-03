@@ -13,7 +13,7 @@ export default function GeneralButton() {
             href={item.url.includes('http://') || item.url.includes('https://') ? item.url : '//' + item.url} 
             target={item.new_tab ? '_blank' : '_self'}
             rel="noopener noreferrer"
-            className="w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30">
+            className={`w-full md:w-[calc(50%-2.5rem)] lg:w-[calc(50%-3.5rem)] text-center text-lg px-5 py-3 border border-primary/40 rounded-sm bg-white shadow-md shadow-dark/10 md:text-xl md:p-5 transition-all duration-200 ease-in-out hover:bg-primary/50 hover:shadow-lg hover:shadow-primary/30 umami--click--${item.name.toLowerCase().replace(/\s/g, '')}-${item.id}`}>
             {item.name}
           </a>
         ))
