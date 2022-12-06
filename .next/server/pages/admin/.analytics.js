@@ -50,7 +50,7 @@ function Analytics() {
                         /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
                             className: "mt-10 rounded shadow",
                             children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("iframe", {
-                                src: "https://virtualreality.digidaxa.com",
+                                src: "https://decoruniclinktree.up.railway.app/share/Pcorv3xt/Decorunic%20Linktree",
                                 width: "100%",
                                 height: "1000px"
                             })

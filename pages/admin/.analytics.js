@@ -24,7 +24,7 @@ export default function Analytics() {
             <h1 className="text-2xl lg:text-3xl font-bold text-center">Analytics</h1>
             <div className="mt-10 rounded shadow">
               {/* embedding another web */}
-              <iframe src="https://virtualreality.digidaxa.com" 
+              <iframe src="https://decoruniclinktree.up.railway.app/share/Pcorv3xt/Decorunic%20Linktree" 
                 width="100%" 
                 height="1000px"> 
               </iframe>

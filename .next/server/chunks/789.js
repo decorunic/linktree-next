@@ -244,7 +244,7 @@ function Navbar({ isActiveHamburger , logoutHandler  }) {
                     className: "mb-1 grup",
                     children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx((next_link__WEBPACK_IMPORTED_MODULE_1___default()), {
                         // href="/admin/analytics"
-                        href: "https://decoruniclinktree.up.railway.app/websites/33c0c443-6d61-40eb-b4a5-420f7d423fbf/Decorunic%20Linktree",
+                        href: "https://decoruniclinktree.up.railway.app/share/Pcorv3xt/Decorunic%20Linktree",
                         children: /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("span", {
                             className: router.pathname === "/admin/analytics" ? "cursor-pointer nav-link rounded-b-none rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:hover:text-primary dark:text-primary nav-link-active" : "cursor-pointer nav-link rounded-md border-primary active:font-medium transition-all ease-in duration-75 dark:text-light dark:hover:text-primary",
                             children: "Analytics"
